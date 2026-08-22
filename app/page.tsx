@@ -629,6 +629,141 @@ const archiveLayers = [
   },
 ];
 
+const deepChapters = [
+  {
+    number: '深读 01',
+    nav: '危局形成',
+    title: '转折不是突然发生的',
+    lead: '遵义会议之所以成为伟大转折，首先因为党和红军已经在严酷实践中走到必须回答问题、必须改变错误的关口。',
+    paragraphs: [
+      '第五次反“围剿”失败后，中央红军被迫实行战略转移。长征初期，原有军事领导和指挥方式继续造成严重损失，湘江战役后的局势尤其严峻。危机既来自敌军围追堵截，也来自不符合实际的战略战术。只有把外部困难与自身问题同时放到实践中检验，才可能找到新的出路。',
+      '从通道、黎平到猴场，中央在行军途中围绕前进方向和军事决策不断讨论。转兵贵州、向黔北进军以及加强政治局对军事工作的领导，并不是彼此孤立的节点，而是一条逐步摆脱教条束缚、转向从实际出发的思想轨迹。它们为遵义会议集中总结经验教训创造了认识和组织条件。',
+      '1935年1月7日，中央红军进入遵义。相对稳定的环境，使中央能够召开政治局扩大会议。1月15日至17日，与会同志把此前分散在行军与作战中的反思带入正式讨论。由此，危局不再只是被承受的处境，而成为必须被分析、被纠正的问题。',
+    ],
+    facts: ['第五次反“围剿”失败', '通道—黎平—猴场的连续讨论', '1935年1月进入遵义'],
+    source: '中共中央党史和文献研究院《党史上的重要会议：遵义会议》',
+    href: 'https://www.dswxyjy.org.cn/BIG5/n1/2022/1110/c448623-32563152.html',
+  },
+  {
+    number: '深读 02',
+    nav: '集体讨论',
+    title: '二十位在场者与三天讨论',
+    lead: '理解遵义会议，不能只记住若干人名，还要理解政治局扩大会议如何把中央领导、红军总部和前线军团的实践经验汇集起来。',
+    paragraphs: [
+      '公开党史资料确认，出席和列席遵义会议的共有20人。政治局委员和候补委员是讨论与决策主体，红军总部、总政治部和各军团负责人把战场经验带入会场，中央机关人员与列席人员共同构成完整的在场者名单。这样的人员构成，使会议能够同时面对政治领导、军事指挥和前线实践。',
+      '会议围绕第五次反“围剿”失败和长征初期受挫的经验教训展开。报告、发言、批评和讨论相互推进，符合实际的意见逐步获得支持。这里的关键并不是制造戏剧化的个人对立，而是党在重大挫折面前敢于正视问题，以事实检验既有判断。',
+      '三天会议集中解决当时最迫切的军事问题和组织问题，并不意味着所有问题一次完成。会议作出的关键决定，还需要通过决议起草、常委分工和此后的军事领导实践逐步贯彻。把“会场决定”与“会后过程”连起来，才能准确理解伟大转折的形成。',
+    ],
+    facts: ['出席与列席共20人', '中央领导与前线负责人共同参加', '报告、发言与充分讨论形成认识'],
+    source: '中共中央党史和文献研究院《参加遵义会议的人员都有谁》',
+    href: 'https://www.dswxyjy.org.cn/n1/2025/0307/c423726-40433382.html',
+  },
+  {
+    number: '深读 03',
+    nav: '决定成文',
+    title: '从会场意见到组织决定',
+    lead: '一次会议真正产生历史力量，需要把认识转化为组织决定、正式文献和可以执行的领导机制。',
+    paragraphs: [
+      '会议增选毛泽东同志为中央政治局常委，决定常委重新分工，取消长征前成立的“三人团”。这些决定不是与讨论相分离的人事安排，而是为了纠正错误军事领导、贯彻符合实际的正确主张，为党中央和红军形成新的领导条件。',
+      '会议指定张闻天同志起草《中央关于反对敌人五次“围剿”的总结的决议》，并安排由中央政治局常委审查后发到支部讨论。起草、审查、传达这一过程，使会场中形成的认识进入党的组织体系，也使总结经验教训不止停留在口头讨论。',
+      '会后，中央结合行军和作战需要继续调整领导分工。张闻天同志代替博古负总的责任，毛泽东同志成为周恩来同志在军事指挥上的帮助者；之后又成立由毛泽东、周恩来、王稼祥同志组成的三人军事指挥小组。转折由此表现为一个不断落实、不断巩固的过程。',
+    ],
+    facts: ['增选中央政治局常委', '决议经过起草、审查与传达', '会后领导分工继续完善'],
+    source: '中共中央党史和文献研究院《遵义会议》',
+    href: 'https://www.dswxyjy.org.cn/BIG5/n/2013/1030/c244520-23368739.html',
+  },
+  {
+    number: '深读 04',
+    nav: '实践检验',
+    title: '转折的分量，由实践回答',
+    lead: '遵义会议的历史意义不仅来自会议文本，更来自新的领导和战略策略在此后长征中的实践成效。',
+    paragraphs: [
+      '遵义会议以后，中央红军仍处在强敌围追堵截之中，局势并没有因为会议结束而自动好转。新的领导需要面对不断变化的敌情、地形和兵力条件，在机动作战中争取主动。能否把实事求是转化为具体行动，是会议成果必须接受的检验。',
+      '四渡赤水期间，红军灵活变换作战方向，迂回穿插于敌人重兵之间。它所呈现的不是一条预先写定的固定路线，而是依据战场实际不断调整的指挥能力。随后渡过金沙江，中央红军摆脱敌军围追堵截，战略转移打开新的局面。',
+      '因此，“转折”既包括会议对错误的纠正，也包括正确领导在实践中的形成和巩固。认识、组织与行动三个层面彼此连接：没有正视问题，就没有正确决定；没有组织保证，正确意见难以贯彻；没有实践结果，历史意义也无法得到充分证明。',
+    ],
+    facts: ['会后仍面临严峻战局', '四渡赤水体现灵活机动', '渡过金沙江摆脱围追堵截'],
+    source: '中共中央党史和文献研究院党史资料',
+    href: 'https://www.dswxyjy.org.cn/n1/2019/0228/c423725-30931815.html',
+  },
+  {
+    number: '深读 05',
+    nav: '精神方法',
+    title: '精神不是标签，而是一套方法',
+    lead: '坚定信念、坚持真理、独立自主、团结统一，分别回答了危局中为什么前进、怎样纠错、从何出发以及如何形成合力。',
+    paragraphs: [
+      '坚定信念并不等于回避困难，而是在充分认识危机的情况下仍然坚持目标、寻找出路。坚持真理也不是抽象判断，而是敢于用战争实践检验军事指导，发现错误后进行批评和自我批评，让符合实际的正确主张得到支持。',
+      '独立自主突出从中国革命实际出发解决重大问题。遵义会议在党同共产国际联系中断的情况下召开，党开始独立自主地运用马克思主义基本原理解决中国革命和革命战争的重大问题。它体现的是把普遍原理同具体实际结合起来的政治自觉。',
+      '团结统一建立在充分讨论和坚持真理的基础上。会议通过组织调整，把共同认识转化为统一意志和行动。四个方面不是并列口号：信念提供方向，真理校正认识，独立自主确定方法，团结统一保证执行，共同构成遵义会议精神的内在结构。',
+    ],
+    facts: ['坚定信念提供方向', '坚持真理与独立自主校正方法', '团结统一把认识转化为行动'],
+    source: '中国共产党新闻网《遵义会议精神永放光芒》',
+    href: 'https://dangjian.people.com.cn/n1/2026/0522/c117092-40725457.html',
+  },
+  {
+    number: '深读 06',
+    nav: '现场物证',
+    title: '为什么还要回到真实会址',
+    lead: '建筑、房间、长桌和展陈地图不能替代文献，却能让抽象的历史判断重新获得空间尺度。',
+    paragraphs: [
+      '遵义会议会址主楼是一座中西合璧的两层建筑。会议在二楼东面的小客厅举行，有限的空间与朴素陈设，与会议所承担的重大历史任务形成强烈对照。真实建筑让参观者意识到，历史转折发生在具体时间、具体地点和具体人的集体讨论之中。',
+      '今天看到的会议室陈设属于依据资料进行的复原展示。观看时应当区分三种证据：旧址建筑提供空间见证，公开党史文献提供事实与结论，新闻图片和展陈地图帮助理解现场与路线。它们相互补充，但不能彼此替代，更不能把视觉复原当作未经核验的原始档案。',
+      '会址进入当代城市生活，说明纪念并不是把历史封存在过去。人们通过参观、学习和公共纪念不断重新理解这段历史。数字展览的价值也正在这里：不是复制线下陈列，而是把路线、人物、文献、实践和现场重新组织成可以主动探索的知识关系。',
+    ],
+    facts: ['旧址提供真实空间尺度', '复原陈列与原始档案应当区分', '数字展览重组知识关系而非复制展柜'],
+    source: '新华社《伟大转折是怎样发生的》',
+    href: 'https://fms.news.cn/swf/2019_qmtt/7_14_2019_qm_z/index.html',
+  },
+];
+
+const turningMechanisms = [
+  {
+    axis: '认识',
+    before: '长征初期的失利被过多归因于客观困难，军事指导中的错误没有得到充分正视。',
+    meeting: '会议以第五次反“围剿”和长征初期的实际结果检验军事领导，开展批评和自我批评。',
+    after: '符合实际的正确意见获得支持，“从实际出发”成为改变局面的认识基础。',
+  },
+  {
+    axis: '组织',
+    before: '原有军事领导和重大决策机制不能适应瞬息万变的战争实践。',
+    meeting: '政治局扩大会议通过充分讨论作出领导调整，并安排决议起草、审查和传达。',
+    after: '会后继续调整分工，新的军事指挥小组逐步形成，正确认识获得组织保证。',
+  },
+  {
+    axis: '行动',
+    before: '红军在长征初期处于被动，既定方案不断受到严酷战场事实的冲击。',
+    meeting: '独立自主解决中国革命实际问题的能力，在集体讨论与组织决定中进一步确立。',
+    after: '四渡赤水、渡过金沙江等实践，体现灵活机动的战略策略并逐步扭转被动。',
+  },
+];
+
+const fieldJournal = [
+  {
+    image: '/zunyi-meeting-site-2025.jpg',
+    index: '现场 01',
+    title: '先看建筑，再进入事件',
+    text: '主楼不是宏大纪念性建筑，而是嵌入遵义老城的一处真实旧址。建筑尺度提醒我们：重大历史变化往往发生在有限空间中的艰难讨论与集体抉择里。',
+  },
+  {
+    image: '/zunyi-meeting-room.jpg',
+    index: '现场 02',
+    title: '长桌建立会场的尺度',
+    text: '复原会场中的长桌、藤椅、窗户和吊灯，让“政治局扩大会议”从抽象名词变成可以感知的空间关系；同时，复原陈列并不等同于原始档案。',
+  },
+  {
+    image: '/zunyi-exhibition-map.jpg',
+    index: '现场 03',
+    title: '地图把会议放回长征',
+    text: '路线与态势图帮助观众看到：遵义会议不是孤立的会议史，而是从危局、讨论、决定到实践的一条连续历史链。',
+  },
+  {
+    image: '/zunyi-site-aerial.jpg',
+    index: '现场 04',
+    title: '会址仍在城市生活之中',
+    text: '俯瞰会址与街区，可以看到革命旧址、纪念空间和当代城市共同存在。历史记忆因此不是封闭展品，而是一种持续发生的公共连接。',
+  },
+];
+
 export default function Home() {
   const [activeHall, setActiveHall] = useState<HallId>('crisis');
   const [activeRoute, setActiveRoute] = useState(0);
@@ -640,6 +775,7 @@ export default function Home() {
   const [litSpirits, setLitSpirits] = useState<number[]>([0]);
   const [activePhoto, setActivePhoto] = useState(0);
   const [activeArchive, setActiveArchive] = useState(0);
+  const [activeDeepChapter, setActiveDeepChapter] = useState(0);
   const [visitedHalls, setVisitedHalls] = useState<HallId[]>(['crisis']);
 
   const hall = useMemo(
@@ -654,6 +790,17 @@ export default function Home() {
 
   const enterExhibition = () => {
     document.getElementById('museum')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const openDeepReading = (index: number) => {
+    setActiveDeepChapter(index);
+    window.requestAnimationFrame(() => {
+      document.getElementById('deep-reading')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  };
+
+  const jumpTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const moveHall = (direction: -1 | 1) => {
@@ -722,6 +869,9 @@ export default function Home() {
             <strong>{node.meaning}</strong>
           </div>
           <p className="file-thread">{layer.thread}</p>
+          <button className="open-deep" onClick={() => openDeepReading(0)} type="button">
+            阅读详细版：危局如何形成 <span>→</span>
+          </button>
           <a href={node.href} target="_blank" rel="noreferrer">
             核验史料：{node.source} ↗
           </a>
@@ -773,6 +923,9 @@ export default function Home() {
             ))}
           </div>
           <blockquote>{group.insight}</blockquote>
+          <button className="open-deep" onClick={() => openDeepReading(1)} type="button">
+            阅读详细版：二十位在场者与三天讨论 <span>→</span>
+          </button>
           <a
             href="https://www.dswxyjy.org.cn/n1/2025/0307/c423726-40433382.html"
             target="_blank"
@@ -839,6 +992,9 @@ export default function Home() {
           <div className="record-keywords">
             {layer.keywords.map((keyword) => <span key={keyword}>{keyword}</span>)}
           </div>
+          <button className="open-deep" onClick={() => openDeepReading(1)} type="button">
+            阅读详细版：会议怎样形成集体认识 <span>→</span>
+          </button>
           <a
             href="https://www.dswxyjy.org.cn/BIG5/n1/2022/1110/c448623-32563152.html"
             target="_blank"
@@ -892,6 +1048,9 @@ export default function Home() {
             ))}
           </div>
           <blockquote>{item.note}</blockquote>
+          <button className="open-deep" onClick={() => openDeepReading(2)} type="button">
+            阅读详细版：从意见到组织决定 <span>→</span>
+          </button>
           <a href={item.href} target="_blank" rel="noreferrer">来源：{item.source} ↗</a>
         </article>
 
@@ -940,6 +1099,9 @@ export default function Home() {
             <section><span>历史意义</span><p>{item.meaning}</p></section>
           </div>
           <blockquote>遵义会议的成果不是停留在会场中的结论，而是在新的领导实践和军事行动中不断巩固。</blockquote>
+          <button className="open-deep" onClick={() => openDeepReading(3)} type="button">
+            阅读详细版：转折如何经受实践检验 <span>→</span>
+          </button>
           <a href={item.href} target="_blank" rel="noreferrer">核验史料：{item.source} ↗</a>
         </article>
       </div>
@@ -992,6 +1154,9 @@ export default function Home() {
             <small>面向今天</small>
             <b>{spirit.today}</b>
           </div>
+          <button className="open-deep" onClick={() => openDeepReading(4)} type="button">
+            阅读详细版：精神内涵的逻辑结构 <span>→</span>
+          </button>
           <a
             href="https://dangjian.people.com.cn/n1/2026/0522/c117092-40725457.html"
             target="_blank"
@@ -1019,15 +1184,18 @@ export default function Home() {
             <a href={photo.href} target="_blank" rel="noreferrer">
               {photo.credit} · 查看原报道 ↗
             </a>
+            <button className="open-deep open-deep-dark" onClick={() => openDeepReading(5)} type="button">
+              阅读详细版：真实会址为何重要 <span>→</span>
+            </button>
           </figcaption>
-          <aside className="site-observation">
-            <p>现场观察清单</p>
-            {layer.details.map((detail, index) => (
-              <span key={detail}><i>0{index + 1}</i>{detail}</span>
-            ))}
-            <blockquote>{layer.prompt}</blockquote>
-          </aside>
         </figure>
+        <aside className="site-observation">
+          <p>现场观察清单</p>
+          {layer.details.map((detail, index) => (
+            <span key={detail}><i>0{index + 1}</i>{detail}</span>
+          ))}
+          <blockquote>{layer.prompt}</blockquote>
+        </aside>
         <div className="photo-filmstrip" aria-label="会址观察点">
           {gallery.map((item, index) => (
             <button
@@ -1085,6 +1253,9 @@ export default function Home() {
             <small>关联展厅</small>
             <span>{layer.related.map((name) => <i key={name}>{name}</i>)}</span>
           </div>
+          <button className="open-deep" onClick={() => openDeepReading(2)} type="button">
+            进入深读卷，查看史料如何支撑叙事 <span>→</span>
+          </button>
           <a href={item.href} target="_blank" rel="noreferrer">
             打开权威原文 ↗
           </a>
@@ -1114,6 +1285,8 @@ export default function Home() {
     return renderArchive();
   };
 
+  const deepChapter = deepChapters[activeDeepChapter];
+
   return (
     <main className="site-shell">
       <header className="topbar">
@@ -1129,7 +1302,12 @@ export default function Home() {
             <small>历史情境数字展</small>
           </span>
         </button>
-        <div className="topbar-motto">在危局中坚持真理 · 在实践中修正错误</div>
+        <nav className="chapter-nav" aria-label="项目章节导航">
+          <button onClick={() => jumpTo('museum')} type="button">数字会址</button>
+          <button onClick={() => jumpTo('deep-reading')} type="button">深读卷</button>
+          <button onClick={() => jumpTo('mechanism')} type="button">转折机制</button>
+          <button onClick={() => jumpTo('field-journal')} type="button">现场图志</button>
+        </nav>
         <button className="topbar-enter" onClick={enterExhibition} type="button">
           打开展厅地图 <i>⌘</i>
         </button>
@@ -1157,7 +1335,7 @@ export default function Home() {
             <button onClick={enterExhibition} type="button">
               推门进入数字会址 <span>→</span>
             </button>
-            <p>不是逐页观看<br />请在展厅中主动探索</p>
+            <p>互动展厅之后<br />继续进入深读与现场图志</p>
           </div>
         </div>
 
@@ -1170,6 +1348,14 @@ export default function Home() {
 
         <p className="hero-credit">背景资料图：遵义会议会议室，新华社记者 陶亮 摄（2019）</p>
       </section>
+
+      <nav className="project-ribbon" aria-label="展览阅读路径">
+        <span><b>阅读路径</b>不必按顺序，也可以从任一章节进入</span>
+        <button onClick={() => jumpTo('museum')} type="button"><i>01</i><b>互动探索</b><small>八座数字展厅</small></button>
+        <button onClick={() => jumpTo('deep-reading')} type="button"><i>02</i><b>详细阅读</b><small>六卷长文档案</small></button>
+        <button onClick={() => jumpTo('mechanism')} type="button"><i>03</i><b>理解转折</b><small>认识·组织·行动</small></button>
+        <button onClick={() => jumpTo('field-journal')} type="button"><i>04</i><b>回到现场</b><small>建筑与空间图志</small></button>
+      </nav>
 
       <section className={'museum hall-' + activeHall} id="museum">
         <aside className="museum-map">
@@ -1231,6 +1417,122 @@ export default function Home() {
             <button onClick={() => moveHall(1)} type="button" aria-label="下一个展厅">→</button>
           </div>
         </div>
+      </section>
+
+      <section className="deep-reading" id="deep-reading">
+        <header className="chapter-heading chapter-heading-dark">
+          <p>LONG-FORM READING / 06 CHAPTERS</p>
+          <div>
+            <span>第三章</span>
+            <h2>深读卷</h2>
+            <strong>展厅给出概述，这里保留完整论述。</strong>
+          </div>
+          <p>六篇长文分别回应危局、人员、决定、实践、精神与现场。点击展厅中的“阅读详细版”，也会直接来到对应篇章。</p>
+        </header>
+
+        <div className="deep-reader-shell">
+          <nav aria-label="深读卷目录">
+            {deepChapters.map((chapter, index) => (
+              <button
+                className={activeDeepChapter === index ? 'active' : ''}
+                key={chapter.number}
+                onClick={() => setActiveDeepChapter(index)}
+                type="button"
+              >
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <b>{chapter.nav}</b>
+                <i>{activeDeepChapter === index ? '展开中' : '打开'}</i>
+              </button>
+            ))}
+          </nav>
+
+          <article className="longform-sheet" key={deepChapter.number}>
+            <div className="longform-folio">
+              <span>{deepChapter.number}</span>
+              <b>{String(activeDeepChapter + 1).padStart(2, '0')} / 06</b>
+            </div>
+            <h3>{deepChapter.title}</h3>
+            <p className="longform-lead">{deepChapter.lead}</p>
+            <div className="longform-body">
+              {deepChapter.paragraphs.map((paragraph, index) => (
+                <p key={paragraph}><span>{String(index + 1).padStart(2, '0')}</span>{paragraph}</p>
+              ))}
+            </div>
+            <aside className="longform-facts">
+              <small>本篇事实锚点</small>
+              <div>{deepChapter.facts.map((fact) => <span key={fact}>{fact}</span>)}</div>
+            </aside>
+            <a href={deepChapter.href} target="_blank" rel="noreferrer">查阅本篇主要权威来源：{deepChapter.source} ↗</a>
+          </article>
+        </div>
+      </section>
+
+      <section className="mechanism-page" id="mechanism">
+        <header className="chapter-heading">
+          <p>HOW A TURNING POINT WORKS</p>
+          <div>
+            <span>第四章</span>
+            <h2>转折机制</h2>
+            <strong>不是一个瞬间，而是三层变化相互推动。</strong>
+          </div>
+          <p>把遵义会议放在前因与后果之间，观察认识、组织和行动如何形成连续链条。</p>
+        </header>
+
+        <div className="mechanism-board">
+          <div className="mechanism-head">
+            <span>观察轴</span><b>会前暴露的问题</b><b>会议中的改变</b><b>会后的实践展开</b>
+          </div>
+          {turningMechanisms.map((item, index) => (
+            <article key={item.axis}>
+              <div><span>0{index + 1}</span><strong>{item.axis}</strong></div>
+              <p>{item.before}</p>
+              <p>{item.meeting}</p>
+              <p>{item.after}</p>
+            </article>
+          ))}
+          <div className="mechanism-result">
+            <span>认识纠偏</span><i>→</i><span>组织保证</span><i>→</i><span>实践检验</span><b>伟大转折由此获得历史分量</b>
+          </div>
+        </div>
+        <p className="mechanism-note">说明：本图用于梳理历史逻辑，不把长期形成和巩固的转变简化为一次会议结束时的瞬间完成。</p>
+      </section>
+
+      <section className="field-journal" id="field-journal">
+        <header className="chapter-heading">
+          <p>FIELD JOURNAL / ZUNYI</p>
+          <div>
+            <span>第五章</span>
+            <h2>现场图志</h2>
+            <strong>让建筑、房间与地图各自说话。</strong>
+          </div>
+          <p>这里不再使用覆盖在照片上的便签。图像与文字分开排布，既完整观看现场，也能阅读较长的观察说明。</p>
+        </header>
+
+        <div className="journal-grid">
+          {fieldJournal.map((item, index) => (
+            <figure className={'journal-item journal-item-' + (index + 1)} key={item.title}>
+              <div><img src={item.image} alt={item.title} /></div>
+              <figcaption>
+                <span>{item.index}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="journal-credit">图像来源与原报道链接可在“今日·会址”和“档案·索引”展厅逐项核验。</p>
+      </section>
+
+      <section className="epilogue" id="epilogue">
+        <div className="epilogue-mark">遵义</div>
+        <p>EPILOGUE / FROM HISTORY TO METHOD</p>
+        <h2>从遵义出发，<br />看见一种面对困难的方法。</h2>
+        <div>
+          <span>正视问题，而不是回避问题。</span>
+          <span>尊重实践，而不是拘泥成规。</span>
+          <span>形成共识，并把认识转化为行动。</span>
+        </div>
+        <button onClick={() => jumpTo('museum')} type="button">重新进入数字会址 <i>↑</i></button>
       </section>
 
       <footer className="site-footer">
