@@ -1,10 +1,37 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
+const siteUrl = new URL('https://zunyi-turning-point-1935.pangperry030.chatgpt.site');
+const title = '在答案出现以前｜遵义会议历史情境数字展';
+const description =
+  '沿长征关键节点、会议长桌、转折机制与精神谱系，自主探索遵义会议这一生死攸关的伟大转折。';
+
 export const metadata: Metadata = {
-  title: '在答案出现以前｜遵义会议历史情境数字展',
-  description:
-    '以权威史料与社会实践调查为基础，理解遵义会议这一伟大转折何以发生。',
+  metadataBase: siteUrl,
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: '遵义·决策现场',
+    locale: 'zh_CN',
+    type: 'website',
+    images: [
+      {
+        url: '/og.png',
+        width: 1733,
+        height: 907,
+        alt: '在答案出现以前——遵义会议历史情境数字展',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: ['/og.png'],
+  },
 };
 
 export default function RootLayout({
