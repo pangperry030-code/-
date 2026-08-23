@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import type { PointerEvent } from 'react';
-import ShareQr from '../ShareQr';
 
 type Artifact = {
   id: string;
@@ -355,7 +354,6 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
         <p>藏品名称、登记号、级别、年代、材质、尺寸与流传信息据遵义会议纪念馆官方微信公众号公开内容整理。</p>
         {onBack ? <button onClick={onBack} type="button">返回数字会址 ↑</button> : <a href="/">返回数字会址 ↑</a>}
       </footer>
-      <ShareQr />
     </main>
   );
 }

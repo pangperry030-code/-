@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import RelicExhibition from './relics/RelicExhibition';
-import ShareQr from './ShareQr';
 
 type HallId =
   | 'crisis'
@@ -1534,7 +1533,6 @@ export default function Home() {
           <p>从危局中坚持真理，在实践中修正错误，在共同目标下团结统一——遵义会议的历史经验仍在照亮新的征程。</p>
           <button onClick={() => switchExperience('finale')} type="button">进入光明终章 <span>→</span></button>
         </section>
-        <ShareQr />
       </main>
     );
   }
@@ -1578,7 +1576,6 @@ export default function Home() {
           </div>
           <p className="finale-source">历史结论据《中共中央关于党的百年奋斗重大成就和历史经验的决议》。</p>
         </section>
-        <ShareQr />
       </main>
     );
   }
@@ -1727,7 +1724,6 @@ export default function Home() {
         <blockquote>“要运用好遵义会议历史经验，让遵义会议精神永放光芒。”</blockquote>
         <button onClick={() => switchExperience('artifacts')} type="button">继续：革命文物特展 →</button>
       </footer>
-      <ShareQr />
     </main>
   );
 }
