@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
+import RelicExhibition from './relics/RelicExhibition';
 
 type HallId =
   | 'crisis'
@@ -10,8 +11,9 @@ type HallId =
   | 'decision'
   | 'practice'
   | 'spirit'
-  | 'site'
-  | 'archive';
+  | 'site';
+
+type ExperienceView = 'site' | 'artifacts' | 'archive' | 'finale';
 
 type NoteSection = {
   eyebrow: string;
@@ -92,15 +94,6 @@ const halls: Array<{
     title: '从会址走进历史',
     instruction: '切换五个观察点，以建筑、场景与展陈建立现场感。',
     background: '/zunyi-meeting-site-2025.jpg',
-  },
-  {
-    id: 'archive',
-    number: '08',
-    label: '档案·索引',
-    eyebrow: 'VERIFIED ARCHIVE',
-    title: '每一条结论，都有来处',
-    instruction: '拉开资料抽屉，查看权威史料、资料层级及其关联内容。',
-    background: '/zunyi-meeting-room.jpg',
   },
 ];
 
@@ -638,6 +631,7 @@ const archiveLayers = [
 ];
 
 export default function Home() {
+  const [experienceView, setExperienceView] = useState<ExperienceView>('site');
   const [activeHall, setActiveHall] = useState<HallId>('crisis');
   const [activeRoute, setActiveRoute] = useState(0);
   const [activeParticipantGroup, setActiveParticipantGroup] = useState(0);
@@ -661,6 +655,19 @@ export default function Home() {
     setVisitedHalls((current) => (current.includes(id) ? current : [...current, id]));
   };
 
+  const switchExperience = (view: ExperienceView, targetId?: string) => {
+    setExperienceView(view);
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        if (targetId) {
+          document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'auto' });
+        }
+      });
+    });
+  };
+
   const enterExhibition = () => {
     document.getElementById('museum')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -677,6 +684,7 @@ export default function Home() {
   };
 
   const noteSelectionKey = [
+    experienceView,
     activeHall,
     activeRoute,
     activeParticipantGroup,
@@ -1458,12 +1466,122 @@ export default function Home() {
     if (activeHall === 'decision') return renderDecision();
     if (activeHall === 'practice') return renderPractice();
     if (activeHall === 'spirit') return renderSpirit();
-    if (activeHall === 'site') return renderSite();
-    return renderArchive();
+    return renderSite();
   };
 
+  if (experienceView === 'artifacts') {
+    return (
+      <RelicExhibition
+        onBack={() => switchExperience('site', 'museum')}
+        onNext={() => switchExperience('archive')}
+      />
+    );
+  }
+
+  if (experienceView === 'archive') {
+    return (
+      <main className="archive-page experience-scene">
+        <header className="chapter-topbar archive-chapter-topbar">
+          <button className="chapter-brand" onClick={() => switchExperience('site', 'museum')} type="button">
+            <span>遵</span><b>遵义·决策现场</b>
+          </button>
+          <nav aria-label="参观章节">
+            <button onClick={() => switchExperience('site', 'museum')} type="button">01 数字会址</button>
+            <button onClick={() => switchExperience('artifacts')} type="button">02 革命文物</button>
+            <b>03 权威档案</b>
+            <span>04 光明终章</span>
+          </nav>
+          <button onClick={() => switchExperience('artifacts')} type="button">返回文物特展 ←</button>
+        </header>
+
+        <section className="archive-hero">
+          <div className="archive-hero-grid" aria-hidden="true" />
+          <div className="archive-hero-mark" aria-hidden="true">据</div>
+          <div className="archive-hero-copy">
+            <p><span>VERIFIED ARCHIVE</span><b>06 组权威公开资料</b></p>
+            <h1>每一条结论，<br /><em>都有来处。</em></h1>
+            <div>
+              <strong>从历史结论，到会议细节，再到现场图像。</strong>
+              <p>档案不是展览末尾的注脚，而是观众能够继续核验、继续阅读的入口。</p>
+            </div>
+            <button onClick={() => document.getElementById('archive-reading')?.scrollIntoView({ behavior: 'smooth' })} type="button">
+              拉开权威史料柜 <span>↓</span>
+            </button>
+          </div>
+          <aside>
+            <div><span>01</span><b>中央历史决议</b></div>
+            <div><span>02</span><b>中央党史资料</b></div>
+            <div><span>03</span><b>中央新闻报道</b></div>
+          </aside>
+        </section>
+
+        <section className="archive-page-reader" id="archive-reading">
+          <header>
+            <p>ARCHIVE READING ROOM / 资料核验室</p>
+            <h2>沿着出处，回到更完整的历史叙述</h2>
+            <span>选择左侧资料抽屉；每条概述均可在原位展开纵向详细介绍。</span>
+          </header>
+          {renderArchive()}
+        </section>
+
+        <section className="archive-to-finale">
+          <div className="archive-to-finale-number">04</div>
+          <div>
+            <span>EPILOGUE / 终章</span>
+            <h2>合上档案，不是结束。<br />历史的光，正照向今天。</h2>
+          </div>
+          <p>从危局中坚持真理，在实践中修正错误，在共同目标下团结统一——遵义会议的历史经验仍在照亮新的征程。</p>
+          <button onClick={() => switchExperience('finale')} type="button">进入光明终章 <span>→</span></button>
+        </section>
+      </main>
+    );
+  }
+
+  if (experienceView === 'finale') {
+    return (
+      <main className="finale-page experience-scene">
+        <header className="finale-topbar">
+          <button onClick={() => switchExperience('site', 'top')} type="button"><span>遵</span><b>遵义·决策现场</b></button>
+          <p>04 / EPILOGUE · 光明终章</p>
+          <button onClick={() => switchExperience('archive')} type="button">返回权威档案 ←</button>
+        </header>
+
+        <section className="finale-stage">
+          <div className="finale-rays" aria-hidden="true" />
+          <div className="finale-orbit orbit-one" aria-hidden="true" />
+          <div className="finale-orbit orbit-two" aria-hidden="true" />
+          <div className="finale-giant-word" aria-hidden="true">光</div>
+          <p className="finale-kicker"><span>1935 · 遵义</span><b>从伟大转折走向光明前程</b></p>
+          <div className="finale-title">
+            <small>遵义会议精神</small>
+            <h1>永放<em>光芒</em></h1>
+            <p>伟大转折不是被动等待的结果，而是在最危急的关头，以对真理的坚持、对实际的尊重和全党的团结奋斗开辟出的新路。</p>
+          </div>
+
+          <div className="finale-values" aria-label="遵义会议精神">
+            <div><span>01</span><b>坚定信念</b><small>守住前进方向</small></div>
+            <div><span>02</span><b>坚持真理</b><small>勇于修正错误</small></div>
+            <div><span>03</span><b>独立自主</b><small>从中国实际出发</small></div>
+            <div><span>04</span><b>团结统一</b><small>凝聚共同力量</small></div>
+          </div>
+
+          <blockquote>
+            <span>历史结论</span>
+            <p>遵义会议是党的历史上一个生死攸关的转折点，开启了党独立自主解决中国革命实际问题新阶段。</p>
+          </blockquote>
+
+          <div className="finale-actions">
+            <button onClick={() => switchExperience('site', 'museum')} type="button">重返数字会址 <span>↗</span></button>
+            <button onClick={() => switchExperience('site', 'top')} type="button">从封面重新参观 <span>↺</span></button>
+          </div>
+          <p className="finale-source">历史结论据《中共中央关于党的百年奋斗重大成就和历史经验的决议》。</p>
+        </section>
+      </main>
+    );
+  }
+
   return (
-    <main className="site-shell">
+    <main className="site-shell experience-scene">
       <header className="topbar">
         <button
           className="brand"
@@ -1505,7 +1623,7 @@ export default function Home() {
             <button onClick={enterExhibition} type="button">
               推门进入数字会址 <span>→</span>
             </button>
-            <p>八座互动展厅<br />另设一页独立革命文物特展</p>
+            <p>七座互动展厅<br />之后进入文物、档案与光明终章</p>
           </div>
         </div>
 
@@ -1522,7 +1640,7 @@ export default function Home() {
       <section className={'museum hall-' + activeHall} id="museum">
         <aside className="museum-map">
           <div className="map-heading">
-            <span>DIGITAL SITE / 08 ROOMS</span>
+            <span>DIGITAL SITE / 07 ROOMS</span>
             <h2>数字会址</h2>
             <p>请选择入口，自主决定参观顺序。</p>
           </div>
@@ -1548,7 +1666,7 @@ export default function Home() {
           <div className="visit-progress">
             <div style={{ '--progress': visitedHalls.length / halls.length } as CSSProperties}>
               <strong>{visitedHalls.length}</strong>
-              <span>/ 8</span>
+              <span>/ 7</span>
             </div>
             <p>已进入展厅</p>
           </div>
@@ -1575,7 +1693,7 @@ export default function Home() {
 
           <div className="hall-switcher">
             <button onClick={() => moveHall(-1)} type="button" aria-label="上一个展厅">←</button>
-            <span>{hall.number} / 08</span>
+            <span>{hall.number} / 07</span>
             <button onClick={() => moveHall(1)} type="button" aria-label="下一个展厅">→</button>
           </div>
         </div>
@@ -1588,11 +1706,11 @@ export default function Home() {
           <figure><img src="/artifacts/shrapnel.png" alt="" /></figure>
         </div>
         <div className="artifact-entry-copy">
-          <p><span>NEW PAGE</span>遵义会议纪念馆革命文物特别展</p>
+          <p><span>SCENE 02</span>遵义会议纪念馆革命文物特别展</p>
           <h2 id="artifact-entry-title">见物，见人，<br />见一段真实的长征。</h2>
           <div>
-            <p>八件馆藏文物不再挤进数字会址的栏目，而是在独立页面中以“馆藏抽屉、检视光镜、文物档案签和历史时间轴”展开。</p>
-            <a href="/relics">打开独立文物特展 <span>↗</span></a>
+            <p>点击进入后，当前站点将直接切换为文物特展场景；无需打开新页面，馆藏抽屉、检视光镜、文物档案签与历史时间轴会在原处接续展开。</p>
+            <button onClick={() => switchExperience('artifacts')} type="button">进入革命文物特展 <span>→</span></button>
           </div>
         </div>
         <aside><span>08</span><p>件馆藏文物<br />13幅官方图像节选</p></aside>
@@ -1604,15 +1722,7 @@ export default function Home() {
           <p><strong>遵义·决策现场</strong><small>基于公开权威史料制作的补充性数字传播作品</small></p>
         </div>
         <blockquote>“要运用好遵义会议历史经验，让遵义会议精神永放光芒。”</blockquote>
-        <button
-          onClick={() => {
-            chooseHall('archive');
-            document.getElementById('museum')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          type="button"
-        >
-          返回史料柜 ↑
-        </button>
+        <button onClick={() => switchExperience('artifacts')} type="button">继续：革命文物特展 →</button>
       </footer>
     </main>
   );
