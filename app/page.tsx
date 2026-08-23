@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import RelicExhibition from './relics/RelicExhibition';
+import { assetPath } from './paths';
 
 type HallId =
   | 'crisis'
@@ -644,6 +645,9 @@ export default function Home() {
   const [activeArchive, setActiveArchive] = useState(0);
   const [noteMode, setNoteMode] = useState<'summary' | 'detail'>('summary');
   const [visitedHalls, setVisitedHalls] = useState<HallId[]>(['crisis']);
+  const meetingRoomBackground = {
+    '--meeting-room-image': `url("${assetPath('/zunyi-meeting-room.jpg')}")`,
+  } as CSSProperties;
 
   const hall = useMemo(
     () => halls.find((item) => item.id === activeHall) || halls[0],
@@ -1333,7 +1337,7 @@ export default function Home() {
     return (
       <div className="site-room">
         <figure className="site-main-photo" key={photo.image}>
-          <img src={photo.image} alt={photo.title} />
+          <img src={assetPath(photo.image)} alt={photo.title} />
           <div className="photo-vignette" />
           <figcaption>
             <span>{photo.label}</span>
@@ -1362,7 +1366,7 @@ export default function Home() {
               onClick={() => setActivePhoto(index)}
               type="button"
             >
-              <img src={item.image} alt="" />
+              <img src={assetPath(item.image)} alt="" />
               <span>{String(index + 1).padStart(2, '0')}</span>
               <b>{item.title}</b>
             </button>
@@ -1480,7 +1484,7 @@ export default function Home() {
 
   if (experienceView === 'archive') {
     return (
-      <main className="archive-page experience-scene">
+      <main className="archive-page experience-scene" style={meetingRoomBackground}>
         <header className="chapter-topbar archive-chapter-topbar">
           <button className="chapter-brand" onClick={() => switchExperience('site', 'museum')} type="button">
             <span>遵</span><b>遵义·决策现场</b>
@@ -1581,7 +1585,7 @@ export default function Home() {
   }
 
   return (
-    <main className="site-shell experience-scene">
+    <main className="site-shell experience-scene" style={meetingRoomBackground}>
       <header className="topbar">
         <button
           className="brand"
@@ -1675,7 +1679,7 @@ export default function Home() {
         <div className="hall-stage">
           <div
             className="hall-backdrop"
-            style={{ backgroundImage: 'url(' + hall.background + ')' }}
+            style={{ backgroundImage: 'url(' + assetPath(hall.background) + ')' }}
             aria-hidden="true"
           />
           <div className="hall-overlay" aria-hidden="true" />
@@ -1701,9 +1705,9 @@ export default function Home() {
 
       <section className="artifact-entry" aria-labelledby="artifact-entry-title">
         <div className="artifact-entry-collage" aria-hidden="true">
-          <figure><img src="/artifacts/clock.png" alt="" /></figure>
-          <figure><img src="/artifacts/flag.png" alt="" /></figure>
-          <figure><img src="/artifacts/shrapnel.png" alt="" /></figure>
+          <figure><img src={assetPath('/artifacts/clock.png')} alt="" /></figure>
+          <figure><img src={assetPath('/artifacts/flag.png')} alt="" /></figure>
+          <figure><img src={assetPath('/artifacts/shrapnel.png')} alt="" /></figure>
         </div>
         <div className="artifact-entry-copy">
           <p><span>SCENE 02</span>遵义会议纪念馆革命文物特别展</p>

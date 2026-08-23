@@ -2,7 +2,9 @@
 
 一个面向公众的遵义会议补充性数字传播项目。作品不采用“长页面逐屏翻页”的 PPT 式结构，而是把七座可自主探索的“数字会址”展厅、革命文物特展、权威档案馆和光明终章组织成同一路径内的四幕体验。点击章节按钮即可在原站点中切换场景，不再跳转到新的网址。
 
-**在线参观：** [打开公开数字展馆](https://zunyi-turning-point-1935.pangperry030.chatgpt.site/)
+**在线参观：** [GitHub Pages 公开展馆](https://pangperry030-code.github.io/-/)
+
+**备用镜像：** [Sites 公开展馆](https://zunyi-turning-point-1935.pangperry030.chatgpt.site/)
 
 ## 七个交互展厅
 

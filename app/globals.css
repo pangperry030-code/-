@@ -181,7 +181,7 @@ a:focus-visible {
 
 .hero-photo {
   z-index: 0;
-  background: url("/zunyi-meeting-room.jpg") center / cover no-repeat;
+  background: var(--meeting-room-image) center / cover no-repeat;
   filter: saturate(0.72) contrast(1.08) brightness(0.72);
   transform: scale(1.025);
 }
@@ -5434,7 +5434,7 @@ a:focus-visible {
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(104, 8, 17, 0.98) 0%, rgba(137, 13, 24, 0.9) 52%, rgba(203, 41, 37, 0.72) 100%),
-    url("/zunyi-meeting-room.jpg") center / cover no-repeat;
+    var(--meeting-room-image) center / cover no-repeat;
   padding: 84px clamp(42px, 8vw, 135px);
 }
 

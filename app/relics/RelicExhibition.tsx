@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { PointerEvent } from 'react';
+import { assetPath, homePath } from '../paths';
 
 type Artifact = {
   id: string;
@@ -220,17 +221,17 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
         {onBack ? (
           <button className="artifact-brand" onClick={onBack} type="button"><span>遵</span><b>遵义·决策现场</b></button>
         ) : (
-          <a href="/" className="artifact-brand"><span>遵</span><b>遵义·决策现场</b></a>
+          <a href={homePath} className="artifact-brand"><span>遵</span><b>遵义·决策现场</b></a>
         )}
         <p><span>01 数字会址</span><b>02 革命文物</b><span>03 权威档案</span><span>04 光明终章</span></p>
-        {onBack ? <button onClick={onBack} type="button">返回数字会址 ←</button> : <a href="/">返回数字会址 ←</a>}
+        {onBack ? <button onClick={onBack} type="button">返回数字会址 ←</button> : <a href={homePath}>返回数字会址 ←</a>}
       </header>
 
       <section className="artifact-portal">
         <div className="artifact-portal-grid" aria-hidden="true" />
-        <figure className="portal-object portal-object-clock"><img src="/artifacts/clock.png" alt="" /></figure>
-        <figure className="portal-object portal-object-flag"><img src="/artifacts/flag.png" alt="" /></figure>
-        <figure className="portal-object portal-object-seal"><img src="/artifacts/seal.png" alt="" /></figure>
+        <figure className="portal-object portal-object-clock"><img src={assetPath('/artifacts/clock.png')} alt="" /></figure>
+        <figure className="portal-object portal-object-flag"><img src={assetPath('/artifacts/flag.png')} alt="" /></figure>
+        <figure className="portal-object portal-object-seal"><img src={assetPath('/artifacts/seal.png')} alt="" /></figure>
         <div className="artifact-portal-copy">
           <p><span>遵义会议纪念馆馆藏</span><b>08 OBJECTS / 13 IMAGES</b></p>
           <h1><i>见物</i><br />见人</h1>
@@ -280,14 +281,14 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
           >
             <div className="inspection-scale scale-x" aria-hidden="true" />
             <div className="inspection-scale scale-y" aria-hidden="true" />
-            <img src={image.src} alt={artifact.title + '，' + image.label} />
+            <img src={assetPath(image.src)} alt={artifact.title + '，' + image.label} />
             {lensOn && lensVisible && (
               <div
                 className="inspection-lens"
                 style={{
                   left: lens.x + '%',
                   top: lens.y + '%',
-                  backgroundImage: 'url("' + image.src + '")',
+                  backgroundImage: 'url("' + assetPath(image.src) + '")',
                   backgroundPosition: lens.x + '% ' + lens.y + '%',
                 }}
                 aria-hidden="true"
@@ -305,7 +306,7 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
                   onClick={() => setActiveImage(index)}
                   type="button"
                 >
-                  <img src={variant.src} alt="" /><span>{variant.label}</span>
+                  <img src={assetPath(variant.src)} alt="" /><span>{variant.label}</span>
                 </button>
               ))}
             </div>
@@ -352,7 +353,7 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
       <footer className="artifact-footer">
         <div><span>遵</span><p><b>见物，见人</b><small>遵义会议纪念馆革命文物特别展</small></p></div>
         <p>藏品名称、登记号、级别、年代、材质、尺寸与流传信息据遵义会议纪念馆官方微信公众号公开内容整理。</p>
-        {onBack ? <button onClick={onBack} type="button">返回数字会址 ↑</button> : <a href="/">返回数字会址 ↑</a>}
+        {onBack ? <button onClick={onBack} type="button">返回数字会址 ↑</button> : <a href={homePath}>返回数字会址 ↑</a>}
       </footer>
     </main>
   );
