@@ -4,7 +4,7 @@ import './globals.css';
 const siteUrl = new URL('https://zunyi-turning-point-1935.pangperry030.chatgpt.site');
 const title = '在答案出现以前｜遵义会议历史情境数字展';
 const description =
-  '通过九座互动展厅、便签内四页深读与文物辨识工作台，自主探索遵义会议这一生死攸关的伟大转折。';
+  '通过八座互动展厅、便签内纵向深读与独立革命文物特别展，自主探索遵义会议这一生死攸关的伟大转折。';
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,

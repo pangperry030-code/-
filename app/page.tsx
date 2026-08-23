@@ -11,10 +11,9 @@ type HallId =
   | 'practice'
   | 'spirit'
   | 'site'
-  | 'relic'
   | 'archive';
 
-type NotePage = {
+type NoteSection = {
   eyebrow: string;
   title: string;
   paragraphs: string[];
@@ -95,21 +94,12 @@ const halls: Array<{
     background: '/zunyi-meeting-site-2025.jpg',
   },
   {
-    id: 'relic',
-    number: '08',
-    label: '文物·辨识',
-    eyebrow: 'READING OBJECTS AS EVIDENCE',
-    title: '先辨性质，再读历史',
-    instruction: '选择一件物证，缩放观察细节，并分清旧址本体、复原陈列、文献档案与解释性展项。',
-    background: '/zunyi-meeting-room.jpg',
-  },
-  {
     id: 'archive',
-    number: '09',
+    number: '08',
     label: '档案·索引',
     eyebrow: 'VERIFIED ARCHIVE',
     title: '每一条结论，都有来处',
-    instruction: '拉开资料抽屉，查看本展使用的权威史料与策展边界。',
+    instruction: '拉开资料抽屉，查看权威史料、资料层级及其关联内容。',
     background: '/zunyi-meeting-room.jpg',
   },
 ];
@@ -574,7 +564,7 @@ const archives = [
     number: 'A-01',
     title: '党的第三个历史决议',
     org: '中国共产党第十九届中央委员会第六次全体会议',
-    scope: '本展关于遵义会议历史地位的最高层级权威表述。',
+    scope: '用于确定遵义会议历史地位的最高层级权威表述。',
     href: 'https://www.mem.gov.cn/jjz/ywgz/202111/t20211122_403307.shtml',
   },
   {
@@ -602,7 +592,7 @@ const archives = [
     number: 'A-05',
     title: '伟大转折是怎样发生的',
     org: '新华社 · 重回遵义会议现场',
-    scope: '本站历史场景图片、会址图片与展陈图片来源。',
+    scope: '会议室、会址全景与展陈图片的资料来源。',
     href: 'https://fms.news.cn/swf/2019_qmtt/7_14_2019_qm_z/index.html',
   },
   {
@@ -637,86 +627,13 @@ const archiveLayers = [
   },
   {
     level: '新华社现场报道',
-    use: '用于本站会议室、会址全景和展陈地图等历史场景图片。',
+    use: '用于会议室、会址全景和展陈地图等历史场景图片。',
     related: ['今日·会址', '封面'],
   },
   {
     level: '中国共产党新闻网',
     use: '用于“坚定信念、坚持真理、独立自主、团结统一”的精神内涵。',
     related: ['精神·灯塔', '实践·检验'],
-  },
-];
-
-const relics = [
-  {
-    number: 'W-01',
-    title: '遵义会议会址主楼',
-    category: '旧址本体',
-    status: '全国第一批重点文物保护单位',
-    image: '/zunyi-meeting-site-2025.jpg',
-    focus: '50% 52%',
-    summary: '这座中西合璧的两层建筑，是遵义会议发生地，也是理解会议真实空间尺度的首要物证。',
-    observe: ['两层建筑与坡屋顶形制', '主楼入口及院落关系', '旧址与遵义老城街区的连接'],
-    evidence: '旧址本体能够证明历史事件发生的空间位置及建筑环境；它与党史文献共同构成理解会议的基础证据。',
-    boundary: '建筑经历过保护维修。今天的观看应同时尊重旧址真实性和文物保护、复原陈列的历史过程。',
-    source: '贵州省地方金融管理局《遵义会议会址》',
-    href: 'https://jr.guizhou.gov.cn/ztzl/zdzt/dsxx_1/202105/t20210519_68869197.html',
-  },
-  {
-    number: 'W-02',
-    title: '二楼会议室',
-    category: '旧址空间',
-    status: '旧址内部空间与复原陈列',
-    image: '/zunyi-meeting-room.jpg',
-    focus: '54% 52%',
-    summary: '会议在主楼二楼东面的小客厅举行。有限的室内尺度，使“危急关头的集体讨论”获得可以感知的空间参照。',
-    observe: ['长桌与围合式座椅形成的讨论关系', '窗户、墙面和房间尺度', '吊灯、挂钟等陈设在空间中的位置'],
-    evidence: '会议室空间帮助观众理解20余人在有限场所连续讨论三天的现场条件，也能与参会人员和会议记录相互印证。',
-    boundary: '照片呈现的是依据调查研究进行的复原陈列。长桌、藤椅和吊灯等不能未经说明就一概认定为会议当时使用的原件。',
-    source: '广西壮族自治区自然资源厅《遵义会议会址的确定及复原经过》',
-    href: 'https://dnr.gxzf.gov.cn/ygd/dshg/t16051610.shtml',
-  },
-  {
-    number: 'W-03',
-    title: '会议室挂钟',
-    category: '馆藏线索',
-    status: '馆藏目录记载的珍贵藏品',
-    image: '/zunyi-meeting-room.jpg',
-    focus: '0% 9%',
-    summary: '贵州省公开资料记载，遵义会议纪念馆收藏有“遵义会议会议室挂钟”。在会场照片中，挂钟也构成观察历史空间的一处细节。',
-    observe: ['挂钟位于会议室左侧墙面高处', '木质钟壳与室内家具色调相近', '计时物件与三天会议的时间叙事形成联系'],
-    evidence: '馆藏目录提供物件身份线索，现场照片提供陈列位置线索；两类信息结合，才能形成较完整的文物阅读。',
-    boundary: '本站没有获得该挂钟的独立高清原件图和完整鉴定档案，因此只作馆藏线索与空间观察，不凭照片追加年代、流传经历等结论。',
-    source: '贵州省地方金融管理局《遵义会议会址》',
-    href: 'https://jr.guizhou.gov.cn/ztzl/zdzt/dsxx_1/202105/t20210519_68869197.html',
-  },
-  {
-    number: 'W-04',
-    title: '《遵义政治局扩大会议传达提纲》手稿',
-    category: '文献档案',
-    status: '中央档案馆馆藏手稿',
-    image: '/chen-yun-zunyi-manuscript.jpg',
-    focus: '50% 48%',
-    summary: '陈云同志在遵义会议后为传达会议精神写成这份提纲。手稿保存了会议目的、参加人员和重要决定等关键历史信息。',
-    observe: ['钢笔书写在活页纸上', '从右向左竖写、左侧装订', '现存手稿只有“乙”部分，并不完整'],
-    evidence: '手稿全文4600余字，是研究遵义会议历史细节的重要文献档案。其作者、形成时间和用途经过长期辨认与考证。',
-    boundary: '数字展览只展示公开资料图片和经权威研究确认的信息，不把缺失部分补写出来，也不把后来的编定标题等同于手稿原题。',
-    source: '中共中央党史和文献研究院《〈遵义政治局扩大会议传达提纲〉手稿》',
-    href: 'https://www.dswxyjy.org.cn/n1/2024/0129/c427167-40168395.html',
-  },
-  {
-    number: 'W-05',
-    title: '长征路线图展项',
-    category: '解释性展项',
-    status: '帮助理解历史的展陈工具',
-    image: '/zunyi-exhibition-map.jpg',
-    focus: '50% 50%',
-    summary: '路线图把遵义会议放回中央红军长征的整体进程，帮助观众理解会议前后的行动方向和战略处境。',
-    observe: ['路线节点与时间顺序', '遵义在长征路线中的位置', '图例、态势和文字说明之间的关系'],
-    evidence: '解释性展项把多种史料重新组织为可视关系，价值在于帮助理解，而不是替代原始档案或专业军事地图。',
-    boundary: '它不是1935年的会议原件，也不是精确复原所有兵力态势的专业地图。阅读时必须区分“原始文物”和“后设解释”。',
-    source: '新华社《数智技术助力红色文化焕新彩》',
-    href: 'https://www.news.cn/ci/20250407/549e9ce776114a548dc586473e0f110b/c.html',
   },
 ];
 
@@ -730,12 +647,8 @@ export default function Home() {
   const [activeSpirit, setActiveSpirit] = useState(0);
   const [litSpirits, setLitSpirits] = useState<number[]>([0]);
   const [activePhoto, setActivePhoto] = useState(0);
-  const [activeRelic, setActiveRelic] = useState(0);
-  const [relicZoom, setRelicZoom] = useState(1.25);
   const [activeArchive, setActiveArchive] = useState(0);
   const [noteMode, setNoteMode] = useState<'summary' | 'detail'>('summary');
-  const [notePage, setNotePage] = useState(0);
-  const [noteAuto, setNoteAuto] = useState(false);
   const [visitedHalls, setVisitedHalls] = useState<HallId[]>(['crisis']);
 
   const hall = useMemo(
@@ -772,86 +685,53 @@ export default function Home() {
     activePractice,
     activeSpirit,
     activePhoto,
-    activeRelic,
     activeArchive,
   ].join(':');
 
   useEffect(() => {
     setNoteMode('summary');
-    setNotePage(0);
-    setNoteAuto(false);
   }, [noteSelectionKey]);
 
-  useEffect(() => {
-    if (noteMode !== 'detail' || !noteAuto) return;
-    const timer = window.setInterval(() => {
-      setNotePage((current) => (current + 1) % 4);
-    }, 8000);
-    return () => window.clearInterval(timer);
-  }, [noteAuto, noteMode, noteSelectionKey]);
-
-  const renderNote = (summary: ReactNode, pages: NotePage[]) => {
+  const renderNote = (summary: ReactNode, sections: NoteSection[]) => {
     if (noteMode === 'summary') {
       return (
         <>
           {summary}
           <button
             className="open-in-note"
-            onClick={() => {
-              setNoteMode('detail');
-              setNotePage(0);
-              setNoteAuto(true);
-            }}
+            onClick={() => setNoteMode('detail')}
             type="button"
           >
-            <span><b>详细版</b>在当前便签内展开，4页内容将自动切换</span>
-            <i>打开 →</i>
+            <span><b>展开本条详细介绍</b>内容在当前便签内纵向阅读</span>
+            <i>向下展开 ↓</i>
           </button>
         </>
       );
     }
 
-    const page = pages[notePage] || pages[0];
     return (
       <div className="in-note-detail">
         <header>
           <button onClick={() => setNoteMode('summary')} type="button">← 返回概述</button>
-          <span>详细版 {String(notePage + 1).padStart(2, '0')} / 04</span>
-          <button onClick={() => setNoteAuto((current) => !current)} type="button">
-            {noteAuto ? '暂停自动切换' : '继续自动切换'}
-          </button>
+          <span>本条详细介绍</span>
         </header>
-        <div className="note-auto-progress" aria-hidden="true">
-          <i className={noteAuto ? 'running' : ''} key={notePage + '-' + noteAuto} />
+        <div className="note-detail-scroll">
+          {sections.map((section) => (
+            <section key={section.title}>
+              <small>{section.eyebrow}</small>
+              <h4>{section.title}</h4>
+              {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {section.facts && (
+                <div className="note-detail-facts">
+                  {section.facts.map((fact) => <span key={fact}>{fact}</span>)}
+                </div>
+              )}
+              {section.source && (
+                <a href={section.source.href} target="_blank" rel="noreferrer">权威来源：{section.source.label} ↗</a>
+              )}
+            </section>
+          ))}
         </div>
-        <article key={page.title}>
-          <small>{page.eyebrow}</small>
-          <h4>{page.title}</h4>
-          {page.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-          {page.facts && (
-            <div className="note-detail-facts">
-              {page.facts.map((fact) => <span key={fact}>{fact}</span>)}
-            </div>
-          )}
-          {page.source && (
-            <a href={page.source.href} target="_blank" rel="noreferrer">权威来源：{page.source.label} ↗</a>
-          )}
-        </article>
-        <footer>
-          <button onClick={() => setNotePage((notePage + 3) % 4)} type="button" aria-label="上一页">←</button>
-          <div>
-            {pages.map((item, index) => (
-              <button
-                aria-label={'打开详细版第' + (index + 1) + '页：' + item.title}
-                className={notePage === index ? 'active' : ''}
-                key={item.title}
-                onClick={() => setNotePage(index)}
-                type="button"
-              />
-            ))}
-          </div>
-          <button onClick={() => setNotePage((notePage + 1) % 4)} type="button" aria-label="下一页">→</button>
-        </footer>
       </div>
     );
   };
@@ -859,39 +739,38 @@ export default function Home() {
   const renderCrisis = () => {
     const node = routeNodes[activeRoute];
     const layer = routeLayers[activeRoute];
-    const pages: NotePage[] = [
+    const pages: NoteSection[] = [
       {
         eyebrow: '01 / 历史处境',
         title: node.title,
         paragraphs: [
           node.body,
-          layer.situation + '这一节点不能只当作路线上的地名观看，它反映的是原有军事指导不断受到战场事实检验的过程。危机越严峻，重新判断行动方向和领导方式就越迫切。',
+          layer.situation + '这一节点记录了长征途中局势、认识与行动之间的具体联系，也为下一步调整留下了清晰线索。',
         ],
         facts: [node.date, node.short, '长征关键节点'],
       },
       {
-        eyebrow: '02 / 问题与选择',
-        title: '当时真正需要回答什么',
+        eyebrow: '02 / 关键转向',
+        title: '从' + node.short + '看到的选择',
         paragraphs: [
           layer.choice,
-          '这里呈现的“选择”不是让今天的观众改写历史，而是还原当时决策必须面对的实际条件。敌情、地形、兵力和此前行动结果共同构成判断依据，正确主张也正是在同实际结果的比较中逐渐获得支持。',
+          node.meaning + '敌情、地形、兵力和此前行动结果共同构成判断依据，新的主张也在同实践结果的比较中逐渐获得支持。',
         ],
       },
       {
-        eyebrow: '03 / 变化与后果',
-        title: '局部调整怎样走向集中讨论',
+        eyebrow: '03 / 前后联系',
+        title: '这一节点怎样连接下一步',
         paragraphs: [
           layer.consequence,
-          node.meaning + '从通道、黎平、猴场到遵义，思想认识和组织条件逐步积累，分散在行军途中的反思最终进入政治局扩大会议的正式讨论。',
+          layer.thread + '从行军途中的方向调整到遵义会议的集中讨论，认识变化和组织准备在一个个实际节点中逐步积累。',
         ],
-        facts: [layer.thread],
       },
       {
-        eyebrow: '04 / 史料与阅读边界',
-        title: '路线图能够说明什么',
+        eyebrow: '04 / 相关史料',
+        title: node.short + '节点的资料出处',
         paragraphs: [
-          '本展用节点和连线梳理历史关系，重点说明“危局—反思—调整—召开会议”的连续过程。节点位置是关系示意，不是精确军事测绘，也不替代专业长征路线图。',
-          '时间、事件与历史评价均以公开权威资料为依据。对无法由公开材料确认的具体行军细节、人物即时心理和未记录对白，本展不作补写。',
+          node.source + '对这一节点的时间、事件及其在长征进程中的意义作出了公开记载。',
+          '沿着原文继续阅读，可以把当前节点同前后的军事行动、政治局会议和领导方式变化联系起来。',
         ],
         source: { label: node.source, href: node.href },
       },
@@ -949,39 +828,39 @@ export default function Home() {
 
   const renderPeople = () => {
     const group = participantGroups[activeParticipantGroup];
-    const pages: NotePage[] = [
+    const pages: NoteSection[] = [
       {
         eyebrow: '01 / 人员构成',
         title: group.title,
         paragraphs: [
           group.summary,
-          '遵义会议是中央政治局扩大会议。人员构成既包括承担中央领导责任的政治局成员，也包括红军总部、总政治部和主要军团负责人。前线实践由此进入中央层面的集中讨论，使军事指导的是非能够接受真实战局检验。',
+          '这一组共有' + group.count + '。把姓名同1935年1月时的职责结合起来，可以看见他们从各自岗位进入会议讨论的具体位置。',
         ],
         facts: [group.count, '出席与列席共20人', '公开党史资料确认'],
       },
       {
         eyebrow: '02 / 名单与职责',
-        title: '逐人核对，而不是模糊群像',
+        title: group.title + '的职责关系',
         paragraphs: [
-          '名单不仅用于记忆姓名，更用于理解不同职责如何进入会场。政治局成员承担讨论与决策责任，红军负责人带来总部和军团层面的作战经验，中央机关与列席人员共同构成会议记录中的完整在场关系。',
-          '本站保留公开资料中的当时职务表述，不以人物后来的职务替代1935年1月的历史身份。',
+          group.members.map(([name, role]) => name + '（' + role + '）').join('；') + '。',
+          '这些职务说明了这组成员所承担的领导、军事或工作责任，也说明会议讨论能够汇集中央与前线不同层面的情况。',
         ],
         facts: group.members.map(([name, role]) => name + '｜' + role),
       },
       {
-        eyebrow: '03 / 集体讨论',
-        title: '为什么不能把会议讲成个人独白',
+        eyebrow: '03 / 会场作用',
+        title: group.title + '带入会场的经验',
         paragraphs: [
           group.insight,
-          '会议通过报告、发言、批评和讨论逐步形成认识。强调集体讨论并不削弱正确主张的重要作用，而是说明正确意见如何在党内政治生活和战争实践的共同检验中得到支持，并最终转化为组织决定。',
+          '报告、发言、批评和讨论把各自掌握的情况汇集到同一议题之下。正确意见在真实战局和集体讨论中获得支持，并进一步转化为会议决定。',
         ],
       },
       {
-        eyebrow: '04 / 考证边界',
-        title: '名单可以确认，座次不能想象',
+        eyebrow: '04 / 名单来源',
+        title: '查阅这组在场者的完整资料',
         paragraphs: [
-          '本展只呈现权威公开资料能够确认的出席、列席身份与职务，不根据影视画面或后来的艺术创作推演具体座次、发言语气和人物心理。',
-          '群像关系图按身份分组，是帮助阅读人员结构的数字示意，不是会场座次复原。对名单与身份有疑问时，应回到党史研究资料逐项核验。',
+          '中共中央党史和文献研究院公布的参加人员资料，逐项列明出席、列席人员及其当时身份。',
+          '结合完整名单阅读' + group.title + '，可以更准确地理解这组成员同其他在场者之间的职责联系。',
         ],
         source: {
           label: '中共中央党史和文献研究院《参加遵义会议的人员都有谁》',
@@ -1039,38 +918,38 @@ export default function Home() {
   const renderMeeting = () => {
     const record = meetingRecords[activeRecord];
     const layer = meetingLayers[activeRecord];
-    const pages: NotePage[] = [
+    const pages: NoteSection[] = [
       {
-        eyebrow: '01 / 会前条件',
-        title: '问题如何进入会场',
+        eyebrow: '01 / 形成背景',
+        title: record.label + '的历史背景',
         paragraphs: [
           layer.before,
-          record.body + '会议议题来自此前作战和行军中已经暴露的真实问题，并非脱离长征实践的抽象讨论。理解会前条件，才能看清为什么军事问题和组织问题会成为会议最迫切的中心。',
+          record.body + '这一记录所涉及的议题，直接来自此前作战和行军中已经暴露的实际问题。',
         ],
       },
       {
-        eyebrow: '02 / 会场进程',
-        title: record.title,
+        eyebrow: '02 / 会场展开',
+        title: record.title + '如何展开',
         paragraphs: [
           layer.inside,
-          '会议连续举行三天。报告、发言、反对意见与批评并不是彼此割裂的片段，而是围绕失败原因、军事指导和领导责任逐步展开的讨论过程。正确意见在同战场事实的对照中获得更多支持。',
+          '会议连续举行三天，相关报告、发言和讨论围绕这一问题逐步深入。来自战场的事实，使不同意见能够在具体实践中得到比较和检验。',
         ],
         facts: layer.keywords,
       },
       {
-        eyebrow: '03 / 会后影响',
-        title: '决定怎样继续发生作用',
+        eyebrow: '03 / 后续影响',
+        title: '从' + record.label + '继续向后看',
         paragraphs: [
           layer.after,
-          record.note + '会议完成的是关键转折，领导分工、决议起草与新的军事指挥机制还要结合此后的行军和作战继续落实，因此不能把历史变化压缩成会议结束时的一个瞬间。',
+          record.note + '会议形成的认识和决定，随后通过领导分工、决议起草以及新的军事实践继续落实。',
         ],
       },
       {
-        eyebrow: '04 / 史料核验',
-        title: '会场叙事从哪里来',
+        eyebrow: '04 / 相关史料',
+        title: record.label + '的党史资料',
         paragraphs: [
-          '本展综合中央党史资料中的会议时间、地点、议题、决定和会后进程进行分层展示。长桌交互用于组织信息，不表示五份独立存在的“会议记录原件”。',
-          '会场平面、桌椅位置和封签均为数字叙事设计，不推演具体座次，不虚构逐字发言；能够确认的历史结论以权威公开文献为准。',
+          '中共中央党史和文献研究院资料系统记载了会议时间、地点、主要议题、重要决定及会后进程。',
+          '对照原文阅读，可以把当前这条记录放回遵义会议三天讨论的整体过程之中。',
         ],
         source: {
           label: '中共中央党史和文献研究院《党史上的重要会议：遵义会议》',
@@ -1139,38 +1018,38 @@ export default function Home() {
 
   const renderDecision = () => {
     const item = documentLayers[activeDecision];
-    const pages: NotePage[] = [
+    const pages: NoteSection[] = [
       {
-        eyebrow: '01 / 提出问题',
-        title: item.question,
+        eyebrow: '01 / 当前文献层',
+        title: item.title,
         paragraphs: [
+          item.question,
           item.main,
-          '文献阅读首先要辨明它试图解决的问题。遵义会议并非泛泛总结，而是集中审查第五次反“围剿”和长征初期军事指导的是非得失，把已经造成严重后果的问题放到政治局扩大会议中正面讨论。',
         ],
       },
       {
-        eyebrow: '02 / 形成决定',
-        title: '讨论如何获得组织效力',
+        eyebrow: '02 / 核心内容',
+        title: item.label + '包含的要点',
         paragraphs: [
           item.points.join('；') + '。',
-          '会议中的正确认识必须转化为明确决定，才能改变领导和指挥实践。组织调整、常委分工与军事指挥机制的变化彼此联系，不能只理解为孤立的人事变动。',
+          '这些要点把会场中的讨论转化为能够进入组织工作、军事指挥和党内传达的明确内容。',
         ],
         facts: item.points,
       },
       {
-        eyebrow: '03 / 起草与传达',
-        title: '从会场意见到正式文献',
+        eyebrow: '03 / 前后衔接',
+        title: item.title + '怎样进入下一环节',
         paragraphs: [
-          '会议指定张闻天同志起草有关决议，并安排中央政治局常委审查后发到支部讨论。起草把讨论形成的认识转化为文本，审查体现集体把关，组织传达又把会议成果带入更广泛的党内学习和行动。',
-          item.note + '理解这一形成链，可以避免把决议当作脱离会议过程、突然出现的一张文件。',
+          item.note,
+          '从提出问题、形成决定到起草审查和组织传达，每一环节都使会议成果获得更加明确的表达，并进入后续实践。',
         ],
       },
       {
-        eyebrow: '04 / 历史定位',
-        title: '怎样准确理解“伟大转折”',
+        eyebrow: '04 / 历史位置',
+        title: item.title + '在形成链中的位置',
         paragraphs: [
-          '遵义会议的历史地位需要放在领导地位、正确路线、领导集体和独立自主解决中国革命实际问题的进程中理解。它既有会议决定的直接内容，也有会后实践不断巩固的历史结果。',
-          '本站不制作无法核验的“原稿复刻”，也不把展陈视觉当作文献原件；详细表述以中央历史决议和中央党史研究资料为依据。',
+          '这一环节连接着会议讨论与会后落实。会议决定的直接内容，同此后领导实践和军事行动相互衔接，共同构成遵义会议伟大转折的历史进程。',
+          item.source + '提供了这一环节的相关记载和历史评价。',
         ],
         source: { label: item.source, href: item.href },
       },
@@ -1218,7 +1097,7 @@ export default function Home() {
         </article>
 
         <aside className="document-footer">
-          <span>本展不展示无法核验的“会议原稿复刻”，而是依据公开党史资料呈现文献形成过程。</span>
+          <span>页面依据公开党史资料呈现文献形成过程，视觉卷册用于梳理环节关系。</span>
           <b>议题 → 讨论 → 决定 → 成文 → 传达 → 实践</b>
         </aside>
       </div>
@@ -1227,13 +1106,13 @@ export default function Home() {
 
   const renderPractice = () => {
     const item = practiceSteps[activePractice];
-    const pages: NotePage[] = [
+    const pages: NoteSection[] = [
       {
-        eyebrow: '01 / 战场条件',
-        title: item.title + '之前',
+        eyebrow: '01 / 战场处境',
+        title: item.place + '所面对的局势',
         paragraphs: [
           item.context,
-          '遵义会议以后，中央红军仍在强敌围追堵截和兵力悬殊的环境中行动。会议不会自动消除困难，新的领导和战略策略必须在不断变化的敌情、地形和行军条件中接受检验。',
+          '遵义会议以后，中央红军仍处在强敌围追堵截之中。不断变化的敌情、地形与行军条件，构成了这一行动的现实背景。',
         ],
         facts: [item.date, item.place],
       },
@@ -1242,23 +1121,23 @@ export default function Home() {
         title: item.title,
         paragraphs: [
           item.action,
-          '这一行动的关键不只是记住结果，更要观察决策如何根据实际变化。灵活机动意味着不断判断敌我态势、改变行动方向和争取主动，而不是机械执行脱离战场条件的固定方案。',
+          '这一行动显示，新的军事指挥更加注重根据敌我态势判断时机、调整方向，在运动中争取主动。',
         ],
       },
       {
-        eyebrow: '03 / 历史意义',
-        title: '会议成果怎样被实践证明',
+        eyebrow: '03 / 实际影响',
+        title: item.title + '带来的变化',
         paragraphs: [
           item.meaning,
-          '认识纠偏、组织调整和军事行动构成连续链条。正确意见只有进入领导实践并产生符合实际的行动，才能真正改变局面；会后的实践成果也反过来显示遵义会议转折的历史分量。',
+          '认识上的纠偏、组织上的调整与军事行动彼此连接。会后的实践进展，使遵义会议形成的正确主张进一步显示出历史作用。',
         ],
       },
       {
-        eyebrow: '04 / 阅读边界',
-        title: '事件关系图不是精确军事地图',
+        eyebrow: '04 / 相关史料',
+        title: item.title + '与遵义会议成果的联系',
         paragraphs: [
-          '本展选择会后领导调整、四渡赤水、三人军事指挥小组和渡过金沙江等节点，说明会议成果怎样继续落实。它梳理的是时间与逻辑关系，不呈现全部战斗序列。',
-          '路线曲线和节点位置为数字示意。兵力部署、具体渡口和作战过程应以专业军史、地图和权威研究资料为准。',
+          item.source + '记载了这一行动及其在长征进程中的意义。',
+          '把这一节点同前后的领导调整和军事行动对照阅读，可以看到会议成果如何在不断变化的实践中得到落实和巩固。',
         ],
         source: { label: item.source, href: item.href },
       },
@@ -1312,37 +1191,37 @@ export default function Home() {
   const renderSpirit = () => {
     const spirit = spirits[activeSpirit];
     const layer = spiritLayers[activeSpirit];
-    const pages: NotePage[] = [
+    const pages: NoteSection[] = [
       {
-        eyebrow: '01 / 历史坐标',
-        title: spirit.title,
+        eyebrow: '01 / 历史根基',
+        title: spirit.title + '从何而来',
         paragraphs: [
           layer.history,
-          spirit.body + '精神内涵必须落回具体历史处境。离开第五次反“围剿”失败、长征初期受挫和党在危局中纠正错误的过程，只留下口号，就无法理解它为什么具有力量。',
+          spirit.body + '这一精神内涵形成于长征危局和纠正错误的历史进程，具有鲜明的实践基础。',
         ],
       },
       {
-        eyebrow: '02 / 方法结构',
+        eyebrow: '02 / 具体内涵',
         title: spirit.subtitle,
         paragraphs: [
           layer.method,
-          '坚定信念提供方向，坚持真理校正认识，独立自主确定解决问题的立足点，团结统一把共同认识转化为行动。四个方面彼此连接，不是可以任意拆开的标签。',
+          spirit.title + '在遵义会议历史中不是抽象口号，而是通过面对问题、形成判断和付诸行动得到体现。',
         ],
       },
       {
         eyebrow: '03 / 内在联系',
-        title: '这一精神回答了什么问题',
+        title: spirit.title + '与其他精神内涵的联系',
         paragraphs: [
           layer.connection,
-          '遵义会议精神之所以具有当代意义，不在于照搬具体历史条件，而在于学习面对问题的方法：尊重事实、敢于纠错、从实际出发形成判断，并在共同目标下形成行动合力。',
+          '坚定信念提供方向，坚持真理校正认识，独立自主明确解决问题的立足点，团结统一把共同认识转化为行动。四个方面在历史实践中彼此支撑。',
         ],
       },
       {
-        eyebrow: '04 / 面向今天',
-        title: '从历史经验到行动自觉',
+        eyebrow: '04 / 当代启示',
+        title: spirit.title + '留给今天的启示',
         paragraphs: [
           spirit.today,
-          '当代阐释必须建立在准确历史认识之上。本站不把精神内涵娱乐化为性格测试或阵营选择，也不制造虚构历史情境，而是通过历史依据、方法逻辑和现实启示三层阅读建立联系。',
+          '今天回望这段历史，重要的是把信念、真理、实际与团结统一起来，在共同目标下正视问题、形成认识并推动实践。',
         ],
         source: {
           label: '中国共产党新闻网《遵义会议精神永放光芒》',
@@ -1406,39 +1285,39 @@ export default function Home() {
   const renderSite = () => {
     const photo = gallery[activePhoto];
     const layer = galleryLayers[activePhoto];
-    const pages: NotePage[] = [
+    const pages: NoteSection[] = [
       {
-        eyebrow: '01 / 图像现场',
+        eyebrow: '01 / 当前观察点',
         title: photo.title,
         paragraphs: [
           photo.body,
-          '新闻图片提供的是特定时间、机位和构图下的现场记录。阅读时既要观察画面内容，也要注意拍摄年份和报道语境，不能把今天的陈列状态直接当作1935年的原始影像。',
+          '这张图片记录了' + photo.label.replace('观察点 ', '') + '。结合拍摄年份和报道背景，可以看见会址保护、复原陈列或当代参观的具体状态。',
         ],
         facts: [photo.label, photo.credit],
       },
       {
-        eyebrow: '02 / 观察清单',
-        title: '先看细节，再形成判断',
+        eyebrow: '02 / 画面细节',
+        title: '从' + photo.title + '中可以看见什么',
         paragraphs: [
           layer.details.join('；') + '。',
-          '观察建筑形制、室内尺度、展陈关系和城市环境，可以把抽象历史叙事重新放回真实空间。细节的意义不在于猎奇，而在于帮助确认事件发生的条件和纪念展示的方式。',
+          '这些细节把建筑形制、室内尺度、展陈关系或城市环境呈现在同一画面中，使历史事件重新获得具体的空间参照。',
         ],
         facts: layer.details,
       },
       {
-        eyebrow: '03 / 提出问题',
+        eyebrow: '03 / 现场思考',
         title: layer.prompt,
         paragraphs: [
-          '现场观察并不是只寻找一个预设答案。建筑、会议室、地图和参观者分别连接旧址本体、复原陈列、解释性展项与当代记忆，彼此承担不同的证据功能。',
-          '把这些层次区分开，才能既感受现场氛围，又不把后来的陈列设计误认成未经说明的历史原貌。',
+          photo.body,
+          '建筑、会议室、地图和参观者分别连接历史空间、复原陈列、展览解释与当代纪念。不同观察点共同构成今天认识遵义会议会址的路径。',
         ],
       },
       {
-        eyebrow: '04 / 图片来源',
-        title: '图像能够证明到什么程度',
+        eyebrow: '04 / 报道来源',
+        title: photo.credit + '的现场记录',
         paragraphs: [
-          '本站逐项标注图片的报道来源、摄影者与年份。图片用于观察会址、复原空间和展陈，不承担超出画面与报道说明范围的文物鉴定功能。',
-          '对建筑身份、会议内容和历史地位的判断，还需与旧址保护资料、中央党史文献和档案研究相互核验。',
+          '这张图片来自新华社公开报道，记录了会址、室内复原空间、基本陈列或纪念活动中的一个现场切面。',
+          '打开原报道，可以继续查看同组图片与文字说明，了解图片所处的完整报道语境。',
         ],
         source: { label: photo.credit + '原报道', href: photo.href },
       },
@@ -1485,162 +1364,42 @@ export default function Home() {
     );
   };
 
-  const renderRelic = () => {
-    const item = relics[activeRelic];
-    const evidenceIndex = item.category === '解释性展项' ? 2 : item.category.includes('旧址') ? 0 : 1;
-    const pages: NotePage[] = [
-      {
-        eyebrow: '01 / 身份辨识',
-        title: item.title,
-        paragraphs: [
-          item.summary,
-          '文物阅读的第一步不是急于赋予意义，而是确认对象的性质：它是旧址本体、馆藏实物、文献档案，还是后来为了帮助理解而制作的展项。性质不同，能够支持的历史判断也不同。',
-        ],
-        facts: [item.category, item.status],
-      },
-      {
-        eyebrow: '02 / 细节观察',
-        title: '放大以后应该看什么',
-        paragraphs: [
-          item.observe.join('；') + '。',
-          '缩放工具只帮助观察公开图片中的形制、位置和书写特征。观察记录应当先描述“看见什么”，再讨论“它说明什么”，避免把视觉印象直接变成未经核验的历史结论。',
-        ],
-        facts: item.observe,
-      },
-      {
-        eyebrow: '03 / 证据能力',
-        title: '这一物证能够告诉我们什么',
-        paragraphs: [
-          item.evidence,
-          '单件物证通常不能独立说明全部历史过程。旧址需要文献确认事件，档案需要考证作者与形成时间，馆藏物件需要来源和鉴定记录，解释性展项则需要公开其资料依据。',
-        ],
-      },
-      {
-        eyebrow: '04 / 边界与来源',
-        title: '不能从它推出什么',
-        paragraphs: [
-          item.boundary,
-          '本站坚持把“看见的图像”“公开资料确认的身份”和“策展解释”分开标注。没有可靠依据的年代、流传经历、原件身份和人物故事，不因画面效果需要而补写。',
-        ],
-        source: { label: item.source, href: item.href },
-      },
-    ];
-
-    return (
-      <div className="relic-room">
-        <nav className="relic-catalog" aria-label="文物与物证目录">
-          <div><span>OBJECT INDEX</span><b>物证目录</b></div>
-          {relics.map((relic, index) => (
-            <button
-              className={activeRelic === index ? 'active' : ''}
-              key={relic.number}
-              onClick={() => {
-                setActiveRelic(index);
-                setRelicZoom(1.25);
-              }}
-              type="button"
-            >
-              <span>{relic.number}</span>
-              <b>{relic.title}</b>
-              <i>{relic.category}</i>
-            </button>
-          ))}
-        </nav>
-
-        <div className="relic-workbench">
-          <div
-            className="relic-viewport"
-            style={{
-              backgroundImage: 'url("' + item.image + '")',
-              backgroundPosition: item.focus,
-              backgroundSize: Math.round(relicZoom * 100) + '%',
-            }}
-            role="img"
-            aria-label={item.title + '观察图'}
-          >
-            <div className="relic-crosshair" aria-hidden="true"><i /><span /></div>
-            <p><span>{item.number}</span>{item.category}</p>
-          </div>
-          <div className="relic-zoom-control">
-            <button onClick={() => setRelicZoom((value) => Math.max(1, value - 0.25))} type="button">−</button>
-            <label>
-              <span>观察倍率 {Math.round(relicZoom * 100)}%</span>
-              <input
-                aria-label="文物图像观察倍率"
-                max="2.5"
-                min="1"
-                onChange={(event) => setRelicZoom(Number(event.target.value))}
-                step="0.05"
-                type="range"
-                value={relicZoom}
-              />
-            </label>
-            <button onClick={() => setRelicZoom((value) => Math.min(2.5, value + 0.25))} type="button">＋</button>
-          </div>
-          <div className="evidence-ruler">
-            <span className={evidenceIndex === 0 ? 'active' : ''}>现场空间</span>
-            <span className={evidenceIndex === 1 ? 'active' : ''}>实物 / 档案</span>
-            <span className={evidenceIndex === 2 ? 'active' : ''}>展陈解释</span>
-          </div>
-        </div>
-
-        <article className="relic-reader" key={item.number}>
-          {renderNote(
-            <>
-              <div className="relic-reader-head"><span>{item.number} / {item.category}</span><b>{item.status}</b></div>
-              <h3>{item.title}</h3>
-              <p className="relic-summary">{item.summary}</p>
-              <div className="relic-observe">
-                <small>观察点</small>
-                {item.observe.map((point, index) => <span key={point}><i>0{index + 1}</i>{point}</span>)}
-              </div>
-              <div className="relic-evidence"><small>能够说明</small><p>{item.evidence}</p></div>
-              <div className="relic-boundary"><small>不能越界</small><p>{item.boundary}</p></div>
-              <a href={item.href} target="_blank" rel="noreferrer">核验资料：{item.source} ↗</a>
-            </>,
-            pages,
-          )}
-        </article>
-      </div>
-    );
-  };
-
   const renderArchive = () => {
     const item = archives[activeArchive];
     const layer = archiveLayers[activeArchive];
-    const pages: NotePage[] = [
+    const pages: NoteSection[] = [
       {
         eyebrow: '01 / 资料身份',
         title: item.title,
         paragraphs: [
           item.org + '发布或形成了这份资料。' + item.scope,
-          '进入史料之前先辨明资料层级、形成机构和使用范围，能够避免把中央历史决议、研究文章、新闻报道和图片资料混成同一种证据。',
+          '其资料层级为“' + layer.level + '”，在本项目的史料结构中承担明确作用。',
         ],
         facts: [item.number, layer.level],
       },
       {
-        eyebrow: '02 / 本展用途',
-        title: '这份资料支撑了哪些内容',
+        eyebrow: '02 / 记录重点',
+        title: item.title + '提供了哪些内容',
         paragraphs: [
           layer.use,
-          '策展采用资料时遵循“只在其能够支撑的范围内使用”的原则。历史结论、会议细节、图片现场和精神阐释分别需要不同层级的资料，不能用一张新闻图片替代历史决议，也不能用视觉设计替代档案。',
+          item.scope + '这一范围使它能够同展厅中的具体时间、事件、图像或精神阐释建立对应关系。',
         ],
         facts: layer.related,
       },
       {
-        eyebrow: '03 / 交叉核验',
-        title: '为什么不能只依赖单一来源',
+        eyebrow: '03 / 关联展厅',
+        title: '从这份资料返回展览现场',
         paragraphs: [
-          '时间、地点和重要决定可以由中央党史资料核对；手稿等档案提供历史细节；旧址与新闻图像建立空间感；展陈资料说明纪念馆如何解释和传播历史。',
-          '多种材料并置不是追求来源数量，而是让每一类证据承担合适的功能，并在相互印证时发现表述边界。',
+          '这份资料主要关联“' + layer.related.join('”和“') + '”展厅。',
+          '对照展厅中的节点、记录或图片阅读原文，可以把简要信息放回更加完整的历史叙述之中。',
         ],
       },
       {
-        eyebrow: '04 / 策展边界',
-        title: '有来源，也要说明不能推出什么',
+        eyebrow: '04 / 继续阅读',
+        title: '打开' + item.title + '原文',
         paragraphs: [
-          '本站不虚构人物对白、座次和心理活动，不把关系示意当作专业地图，不把复原陈列自动认定为原始文物，也不设置改写历史的假设性选择。',
-          '来源链接保留给观众继续核验。若权威资料对某一细节仍有考证过程，本展优先呈现已经确认的事实，并明确说明不确定部分。',
+          item.org + '公开发布的原文保留了更完整的上下文、表述层级和相关资料。',
+          '从原文继续阅读，可以进一步理解当前资料同遵义会议历史背景、会议进程与会后实践之间的联系。',
         ],
         source: { label: item.title, href: item.href },
       },
@@ -1670,7 +1429,7 @@ export default function Home() {
               <p>资料抽屉 / {item.number}</p>
               <h3>{item.title}</h3>
               <strong>{item.org}</strong>
-              <div className="archive-use"><small>本展采用范围</small><span>{item.scope}</span></div>
+              <div className="archive-use"><small>资料采用范围</small><span>{item.scope}</span></div>
               <div className="archive-level"><small>资料层级</small><b>{layer.level}</b><p>{layer.use}</p></div>
               <div className="archive-related"><small>关联展厅</small><span>{layer.related.map((name) => <i key={name}>{name}</i>)}</span></div>
               <a href={item.href} target="_blank" rel="noreferrer">打开权威原文 ↗</a>
@@ -1700,7 +1459,6 @@ export default function Home() {
     if (activeHall === 'practice') return renderPractice();
     if (activeHall === 'spirit') return renderSpirit();
     if (activeHall === 'site') return renderSite();
-    if (activeHall === 'relic') return renderRelic();
     return renderArchive();
   };
 
@@ -1747,7 +1505,7 @@ export default function Home() {
             <button onClick={enterExhibition} type="button">
               推门进入数字会址 <span>→</span>
             </button>
-            <p>九座互动展厅<br />概述与详细内容均在便签内切换</p>
+            <p>八座互动展厅<br />另设一页独立革命文物特展</p>
           </div>
         </div>
 
@@ -1764,7 +1522,7 @@ export default function Home() {
       <section className={'museum hall-' + activeHall} id="museum">
         <aside className="museum-map">
           <div className="map-heading">
-            <span>DIGITAL SITE / 09 ROOMS</span>
+            <span>DIGITAL SITE / 08 ROOMS</span>
             <h2>数字会址</h2>
             <p>请选择入口，自主决定参观顺序。</p>
           </div>
@@ -1790,7 +1548,7 @@ export default function Home() {
           <div className="visit-progress">
             <div style={{ '--progress': visitedHalls.length / halls.length } as CSSProperties}>
               <strong>{visitedHalls.length}</strong>
-              <span>/ 9</span>
+              <span>/ 8</span>
             </div>
             <p>已进入展厅</p>
           </div>
@@ -1817,10 +1575,27 @@ export default function Home() {
 
           <div className="hall-switcher">
             <button onClick={() => moveHall(-1)} type="button" aria-label="上一个展厅">←</button>
-            <span>{hall.number} / 09</span>
+            <span>{hall.number} / 08</span>
             <button onClick={() => moveHall(1)} type="button" aria-label="下一个展厅">→</button>
           </div>
         </div>
+      </section>
+
+      <section className="artifact-entry" aria-labelledby="artifact-entry-title">
+        <div className="artifact-entry-collage" aria-hidden="true">
+          <figure><img src="/artifacts/clock.png" alt="" /></figure>
+          <figure><img src="/artifacts/flag.png" alt="" /></figure>
+          <figure><img src="/artifacts/shrapnel.png" alt="" /></figure>
+        </div>
+        <div className="artifact-entry-copy">
+          <p><span>NEW PAGE</span>遵义会议纪念馆革命文物特别展</p>
+          <h2 id="artifact-entry-title">见物，见人，<br />见一段真实的长征。</h2>
+          <div>
+            <p>八件馆藏文物不再挤进数字会址的栏目，而是在独立页面中以“馆藏抽屉、检视光镜、文物档案签和历史时间轴”展开。</p>
+            <a href="/relics">打开独立文物特展 <span>↗</span></a>
+          </div>
+        </div>
+        <aside><span>08</span><p>件馆藏文物<br />13幅官方图像节选</p></aside>
       </section>
 
       <footer className="site-footer">
