@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import RelicExhibition from './relics/RelicExhibition';
+import ShareQr from './ShareQr';
 
 type HallId =
   | 'crisis'
@@ -507,7 +508,7 @@ const gallery = [
     image: '/zunyi-exhibition-map.jpg',
     label: '观察点 03 / 基本陈列',
     title: '把军事行动放回地图',
-    body: '路线、敌我态势和行动方向，让观众看到会议不是孤立事件，而是长征实践中的关键节点。',
+    body: '路线、敌我态势和行动方向彼此交织：遵义会议不是孤立事件，而是长征实践中的关键节点。',
     credit: '新华社记者 陶亮 摄，2019',
     href: 'https://fms.news.cn/swf/2019_qmtt/7_14_2019_qm_z/index.html',
   },
@@ -540,14 +541,14 @@ const galleryLayers = [
   },
   {
     details: ['把会议放回长征整体路线', '对照敌我态势理解行动选择', '从地图观察战略主动权的变化'],
-    prompt: '地图不是装饰，它帮助观众看见“根据实际作出决策”的具体含义。',
+    prompt: '沿地图对照行动方向与敌我态势，“根据实际作出决策”的具体含义便清晰可见。',
   },
   {
     details: ['会址院落与周边街区', '纪念空间与城市日常并存', '公共参观持续连接历史记忆'],
     prompt: '一处旧址如何成为一座城市共同维护、不断讲述的精神坐标？',
   },
   {
-    details: ['九十周年纪念标识', '不同年龄参观者共同到访', '纪念活动连接历史与当代'],
+    details: ['九十周年纪念标识', '不同年龄的人们共同到访', '纪念活动连接历史与当代'],
     prompt: '纪念不是停留在回望，而是把历史经验转化为继续前进的力量。',
   },
 ];
@@ -1105,7 +1106,7 @@ export default function Home() {
         </article>
 
         <aside className="document-footer">
-          <span>页面依据公开党史资料呈现文献形成过程，视觉卷册用于梳理环节关系。</span>
+          <span>公开党史资料记录了文献形成过程；四层卷册依次连接议题、决定、成文与历史定位。</span>
           <b>议题 → 讨论 → 决定 → 成文 → 传达 → 实践</b>
         </aside>
       </div>
@@ -1317,7 +1318,7 @@ export default function Home() {
         title: layer.prompt,
         paragraphs: [
           photo.body,
-          '建筑、会议室、地图和参观者分别连接历史空间、复原陈列、展览解释与当代纪念。不同观察点共同构成今天认识遵义会议会址的路径。',
+          '建筑、会议室、地图和一代代到访者，分别连接历史空间、复原陈列、展览解释与当代纪念。五个观察点共同构成今天认识遵义会议会址的路径。',
         ],
       },
       {
@@ -1381,7 +1382,7 @@ export default function Home() {
         title: item.title,
         paragraphs: [
           item.org + '发布或形成了这份资料。' + item.scope,
-          '其资料层级为“' + layer.level + '”，在本项目的史料结构中承担明确作用。',
+          '资料层级标注为“' + layer.level + '”。沿此出处可核对相关结论，并继续阅读更完整的历史语境。',
         ],
         facts: [item.number, layer.level],
       },
@@ -1437,7 +1438,7 @@ export default function Home() {
               <p>资料抽屉 / {item.number}</p>
               <h3>{item.title}</h3>
               <strong>{item.org}</strong>
-              <div className="archive-use"><small>资料采用范围</small><span>{item.scope}</span></div>
+              <div className="archive-use"><small>可核对内容</small><span>{item.scope}</span></div>
               <div className="archive-level"><small>资料层级</small><b>{layer.level}</b><p>{layer.use}</p></div>
               <div className="archive-related"><small>关联展厅</small><span>{layer.related.map((name) => <i key={name}>{name}</i>)}</span></div>
               <a href={item.href} target="_blank" rel="noreferrer">打开权威原文 ↗</a>
@@ -1447,7 +1448,7 @@ export default function Home() {
         </article>
 
         <aside className="curatorial-boundary">
-          <p>策展说明</p>
+          <p>阅读依据</p>
           <div>
             <span><b>史实</b>历史结论、时间节点、会议内容均依据公开权威资料。</span>
             <span><b>示意</b>路线和会场交互用于梳理关系，不替代专业地图与原始档案。</span>
@@ -1502,7 +1503,7 @@ export default function Home() {
             <h1>每一条结论，<br /><em>都有来处。</em></h1>
             <div>
               <strong>从历史结论，到会议细节，再到现场图像。</strong>
-              <p>档案不是展览末尾的注脚，而是观众能够继续核验、继续阅读的入口。</p>
+              <p>六组出处对应历史结论、会议细节与现场图像，可逐项核对，也可打开原文继续阅读。</p>
             </div>
             <button onClick={() => document.getElementById('archive-reading')?.scrollIntoView({ behavior: 'smooth' })} type="button">
               拉开权威史料柜 <span>↓</span>
@@ -1533,6 +1534,7 @@ export default function Home() {
           <p>从危局中坚持真理，在实践中修正错误，在共同目标下团结统一——遵义会议的历史经验仍在照亮新的征程。</p>
           <button onClick={() => switchExperience('finale')} type="button">进入光明终章 <span>→</span></button>
         </section>
+        <ShareQr />
       </main>
     );
   }
@@ -1576,6 +1578,7 @@ export default function Home() {
           </div>
           <p className="finale-source">历史结论据《中共中央关于党的百年奋斗重大成就和历史经验的决议》。</p>
         </section>
+        <ShareQr />
       </main>
     );
   }
@@ -1709,7 +1712,7 @@ export default function Home() {
           <p><span>SCENE 02</span>遵义会议纪念馆革命文物特别展</p>
           <h2 id="artifact-entry-title">见物，见人，<br />见一段真实的长征。</h2>
           <div>
-            <p>点击进入后，当前站点将直接切换为文物特展场景；无需打开新页面，馆藏抽屉、检视光镜、文物档案签与历史时间轴会在原处接续展开。</p>
+            <p>轻触进入，文物特展将在眼前整幕展开；馆藏抽屉、检视光镜、文物档案签与历史时间轴依次接续。</p>
             <button onClick={() => switchExperience('artifacts')} type="button">进入革命文物特展 <span>→</span></button>
           </div>
         </div>
@@ -1724,6 +1727,7 @@ export default function Home() {
         <blockquote>“要运用好遵义会议历史经验，让遵义会议精神永放光芒。”</blockquote>
         <button onClick={() => switchExperience('artifacts')} type="button">继续：革命文物特展 →</button>
       </footer>
+      <ShareQr />
     </main>
   );
 }

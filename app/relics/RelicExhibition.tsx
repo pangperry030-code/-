@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { PointerEvent } from 'react';
+import ShareQr from '../ShareQr';
 
 type Artifact = {
   id: string;
@@ -94,7 +95,7 @@ const artifacts: Artifact[] = [
       '1935年，中央红军二渡赤水、回师黔北，攻克娄山关，随后取得遵义战役胜利。这一胜利是长征以来的一次重大胜利，显示了遵义会议后新的军事指挥。',
       '战斗结束后，当地居民侯正发在娄山关最高峰点灯山拾得这枚五星手榴弹，后来由遵义会议纪念馆收藏。',
     ],
-    reading: '环形拉环、纵向棱线和中央五角星构成鲜明形制。斑驳锈蚀提醒观者，它不是象征性的图案，而是从真实战场保存下来的实物。',
+    reading: '环形拉环、纵向棱线和中央五角星构成鲜明形制。斑驳锈蚀说明它不是象征性的图案，而是从真实战场保存下来的实物。',
     keywords: ['娄山关', '遵义战役', '战场拾得', '实践检验'],
   },
   {
@@ -325,7 +326,7 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
           <section><small>流传经过</small>{artifact.story.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</section>
           <section className="artifact-reading"><small>观察提示</small><p>{artifact.reading}</p></section>
           <div className="artifact-keywords">{artifact.keywords.map((keyword) => <span key={keyword}>{keyword}</span>)}</div>
-          <footer>图片与藏品登记信息节选自遵义会议纪念馆官方微信公众号公开内容，由项目组提供。</footer>
+          <footer>图片与藏品登记信息据遵义会议纪念馆官方微信公众号公开内容整理。</footer>
         </article>
       </section>
 
@@ -344,16 +345,17 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
       {onNext && (
         <section className="artifact-handoff">
           <div><span>NEXT / 03</span><h2>文物让历史可以触摸，<br />档案让结论经得起追问。</h2></div>
-          <p>沿着每件文物背后的史料线索，进入最后一座独立档案馆，查看本展重要结论与图像的权威出处。</p>
+          <p>沿着每件文物背后的史料线索进入权威档案馆，查看前文重要结论与图像的公开出处。</p>
           <button onClick={onNext} type="button">进入权威档案馆 <span>→</span></button>
         </section>
       )}
 
       <footer className="artifact-footer">
         <div><span>遵</span><p><b>见物，见人</b><small>遵义会议纪念馆革命文物特别展</small></p></div>
-        <p>藏品名称、登记号、级别、年代、材质、尺寸与流传信息依据项目组提供的官方微信公众号节选整理。</p>
+        <p>藏品名称、登记号、级别、年代、材质、尺寸与流传信息据遵义会议纪念馆官方微信公众号公开内容整理。</p>
         {onBack ? <button onClick={onBack} type="button">返回数字会址 ↑</button> : <a href="/">返回数字会址 ↑</a>}
       </footer>
+      <ShareQr />
     </main>
   );
 }
