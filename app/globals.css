@@ -6489,3 +6489,682 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Museum daylight palette
+   Vermilion carries the exhibition structure; warm ivory carries reading.
+   The seven rooms move from reserved museum red to bright cinnabar without
+   using black as the default historical atmosphere. */
+
+.topbar {
+  border-bottom-color: rgba(255, 239, 211, 0.3);
+  background: linear-gradient(104deg, rgba(151, 25, 31, 0.97), rgba(201, 48, 43, 0.95) 58%, rgba(225, 78, 53, 0.94));
+  box-shadow: 0 9px 30px rgba(91, 20, 20, 0.16);
+}
+
+.brand small,
+.topbar-motto {
+  color: rgba(255, 245, 226, 0.68);
+}
+
+.topbar-enter {
+  border-color: rgba(255, 244, 224, 0.55);
+  background: rgba(255, 239, 207, 0.12);
+  color: #fff9ed;
+}
+
+.topbar-enter i {
+  color: #ffe0a2;
+}
+
+.cinematic-hero::after {
+  background:
+    linear-gradient(90deg, rgba(118, 16, 24, 0.91) 0%, rgba(164, 29, 31, 0.76) 35%, rgba(201, 58, 43, 0.31) 66%, rgba(105, 19, 21, 0.55) 100%),
+    linear-gradient(0deg, rgba(99, 13, 20, 0.78), transparent 42%, rgba(129, 20, 24, 0.28));
+}
+
+.hero-photo {
+  filter: saturate(0.91) contrast(1.04) brightness(0.87);
+}
+
+.hero-red {
+  background:
+    radial-gradient(circle at 74% 56%, rgba(255, 210, 129, 0.18), transparent 25%),
+    radial-gradient(circle at 45% 35%, rgba(238, 58, 44, 0.26), transparent 50%),
+    linear-gradient(135deg, rgba(205, 45, 39, 0.28), transparent 61%);
+}
+
+.hero-copy h1 {
+  text-shadow: 0 20px 64px rgba(93, 12, 18, 0.38);
+}
+
+.hero-copy h1 em {
+  color: #ff6655;
+}
+
+.hero-intro {
+  border-left-color: #ffb15d;
+}
+
+.hero-actions button {
+  background: linear-gradient(105deg, rgba(187, 35, 37, 0.92), rgba(225, 73, 52, 0.9));
+  box-shadow: 0 18px 45px rgba(111, 20, 23, 0.24);
+}
+
+.hero-dossier {
+  border-color: rgba(255, 239, 210, 0.38);
+  background: linear-gradient(104deg, rgba(156, 25, 30, 0.72), rgba(219, 73, 51, 0.26));
+}
+
+.site-shell {
+  background: #f4dfc5;
+}
+
+.museum {
+  --museum-ink: #3b1d19;
+  --museum-muted: rgba(59, 29, 25, 0.66);
+  --museum-line: rgba(122, 42, 35, 0.2);
+  --stage-bg: #f3e3cc;
+  --stage-wash: rgba(190, 47, 40, 0.14);
+  --map-base: #9d2026;
+  --map-wash: rgba(255, 215, 154, 0.25);
+  --map-active: rgba(255, 239, 207, 0.22);
+  --map-accent: #ffd28c;
+  background: var(--stage-bg);
+  color: var(--museum-ink);
+}
+
+.museum.hall-crisis {
+  --map-base: #9d2026;
+  --map-wash: rgba(255, 218, 160, 0.22);
+  --map-active: rgba(255, 239, 207, 0.2);
+  --map-accent: #ffd18b;
+  --stage-bg: #f3e3cc;
+  --stage-wash: rgba(164, 36, 36, 0.1);
+}
+
+.museum.hall-people {
+  --map-base: #ae2529;
+  --map-wash: rgba(255, 220, 157, 0.24);
+  --map-active: rgba(255, 239, 207, 0.22);
+  --map-accent: #ffd695;
+  --stage-bg: #f4dcc4;
+  --stage-wash: rgba(189, 47, 39, 0.13);
+}
+
+.museum.hall-meeting {
+  --map-base: #ba2b2c;
+  --map-wash: rgba(255, 222, 159, 0.25);
+  --map-active: rgba(255, 241, 211, 0.23);
+  --map-accent: #ffda9c;
+  --stage-bg: #f6d8bb;
+  --stage-wash: rgba(205, 58, 43, 0.16);
+}
+
+.museum.hall-decision {
+  --map-base: #c8322f;
+  --map-wash: rgba(255, 224, 160, 0.27);
+  --map-active: rgba(255, 242, 214, 0.24);
+  --map-accent: #ffdda3;
+  --stage-bg: #f8d0ae;
+  --stage-wash: rgba(218, 65, 44, 0.18);
+}
+
+.museum.hall-practice {
+  --map-base: #d43c32;
+  --map-wash: rgba(255, 226, 163, 0.28);
+  --map-active: rgba(255, 244, 218, 0.25);
+  --map-accent: #ffe0a8;
+  --stage-bg: #f9c79f;
+  --stage-wash: rgba(229, 74, 47, 0.2);
+}
+
+.museum.hall-spirit {
+  --map-base: #df4837;
+  --map-wash: rgba(255, 231, 170, 0.3);
+  --map-active: rgba(255, 246, 221, 0.27);
+  --map-accent: #ffe5b0;
+  --stage-bg: #f9b98c;
+  --stage-wash: rgba(238, 87, 51, 0.22);
+}
+
+.museum.hall-site {
+  --map-base: #eb593e;
+  --map-wash: rgba(255, 235, 178, 0.32);
+  --map-active: rgba(255, 248, 227, 0.29);
+  --map-accent: #ffebbd;
+  --stage-bg: #f7aa7d;
+  --stage-wash: rgba(247, 104, 57, 0.24);
+}
+
+.museum-map {
+  border-right-color: rgba(255, 241, 215, 0.27);
+  background:
+    radial-gradient(circle at 25% 0, var(--map-wash), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 34%),
+    var(--map-base);
+  color: #fff8ea;
+  box-shadow: 9px 0 34px rgba(109, 28, 26, 0.12);
+}
+
+.museum-map::before {
+  opacity: 0.22;
+}
+
+.map-heading > span {
+  color: #ffdda4;
+}
+
+.map-heading p,
+.museum-map nav button,
+.visit-progress p,
+.visit-progress span {
+  color: rgba(255, 246, 227, 0.69);
+}
+
+.museum-map nav,
+.museum-map nav button,
+.visit-progress {
+  border-color: rgba(255, 242, 218, 0.23);
+}
+
+.museum-map nav button:hover,
+.museum-map nav button.active {
+  color: #fffdf6;
+}
+
+.museum-map nav button.active {
+  background: linear-gradient(90deg, var(--map-active), rgba(255, 255, 255, 0.025));
+}
+
+.museum-map nav button > span,
+.museum-map nav button.visited i,
+.museum-map nav button.active i {
+  color: var(--map-accent);
+}
+
+.visit-progress > div {
+  background:
+    radial-gradient(circle at center, var(--map-base) 56%, transparent 57%),
+    conic-gradient(#ffe0a3 calc(var(--progress) * 1turn), rgba(255, 246, 227, 0.2) 0);
+}
+
+.museum .hall-stage {
+  background: var(--stage-bg);
+}
+
+.museum .hall-backdrop,
+.museum.hall-meeting .hall-backdrop,
+.museum.hall-decision .hall-backdrop,
+.museum.hall-spirit .hall-backdrop,
+.museum.hall-site .hall-backdrop,
+.museum.hall-crisis .hall-backdrop,
+.museum.hall-people .hall-backdrop,
+.museum.hall-practice .hall-backdrop {
+  opacity: 0.16;
+  filter: sepia(0.18) saturate(0.78) contrast(0.94) brightness(1.08);
+}
+
+.museum .hall-overlay,
+.museum.hall-meeting .hall-overlay,
+.museum.hall-crisis .hall-overlay,
+.museum.hall-people .hall-overlay,
+.museum.hall-decision .hall-overlay,
+.museum.hall-practice .hall-overlay,
+.museum.hall-spirit .hall-overlay,
+.museum.hall-site .hall-overlay {
+  opacity: 0.9;
+  background:
+    radial-gradient(circle at 82% 14%, rgba(255, 252, 239, 0.58), transparent 31%),
+    linear-gradient(104deg, var(--stage-bg) 0%, rgba(255, 246, 228, 0.74) 56%, var(--stage-wash) 100%);
+}
+
+.museum .hall-stage::before {
+  opacity: 0.42;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(126, 49, 37, 0.018) 5px 6px),
+    linear-gradient(rgba(126, 49, 37, 0.038) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 49, 37, 0.034) 1px, transparent 1px);
+  background-size: auto, 62px 62px, 62px 62px;
+}
+
+.museum .scene-heading {
+  border-bottom-color: var(--museum-line);
+}
+
+.museum .scene-heading > div > span {
+  color: #b12a2c;
+}
+
+.museum .scene-heading h2 {
+  color: #431c19;
+  text-shadow: 0 2px 0 rgba(255, 252, 241, 0.58);
+}
+
+.museum .scene-heading > p {
+  color: var(--museum-muted);
+}
+
+.museum .scene-heading > p i {
+  background: #dc4037;
+  box-shadow: 0 0 0 6px rgba(220, 64, 55, 0.13);
+}
+
+.museum .hall-switcher button {
+  border-color: rgba(126, 42, 34, 0.25);
+  background: rgba(255, 248, 232, 0.82);
+  color: #9b2527;
+  box-shadow: 0 5px 18px rgba(100, 33, 28, 0.09);
+}
+
+.museum .hall-switcher button:hover {
+  border-color: rgba(154, 35, 35, 0.55);
+  color: #c42f2e;
+}
+
+.museum .hall-switcher span {
+  color: rgba(83, 31, 26, 0.6);
+}
+
+.route-map,
+.people-wall,
+.meeting-table-zone,
+.document-shelf,
+.practice-field,
+.spirit-lights {
+  border-color: rgba(125, 49, 38, 0.22);
+  box-shadow: 0 20px 50px rgba(103, 39, 30, 0.12), inset 0 0 70px rgba(173, 70, 48, 0.06);
+}
+
+.route-map {
+  background:
+    linear-gradient(138deg, rgba(255, 251, 236, 0.72), rgba(235, 184, 139, 0.38)),
+    radial-gradient(circle at 72% 18%, rgba(205, 75, 47, 0.17), transparent 38%),
+    #efdabe;
+}
+
+.map-grid {
+  opacity: 0.55;
+  background-image:
+    linear-gradient(rgba(119, 55, 43, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(119, 55, 43, 0.08) 1px, transparent 1px);
+}
+
+.map-mountain,
+.route-map::before {
+  border-color: rgba(151, 76, 52, 0.18);
+}
+
+.route-line path {
+  stroke: rgba(116, 51, 39, 0.48);
+}
+
+.route-line .route-line-glow {
+  stroke: rgba(213, 51, 45, 0.94);
+}
+
+.map-node {
+  color: rgba(67, 32, 26, 0.72);
+}
+
+.map-node i {
+  border-color: #cf3535;
+  background: #f7e8cf;
+  box-shadow: 0 0 0 5px rgba(207, 53, 53, 0.12);
+}
+
+.map-node span,
+.schematic-note {
+  color: rgba(67, 32, 26, 0.48);
+}
+
+.map-node.active {
+  color: #8b1e22;
+}
+
+.people-wall {
+  background:
+    radial-gradient(circle at center, rgba(211, 72, 50, 0.18), transparent 35%),
+    linear-gradient(145deg, rgba(255, 248, 229, 0.88), rgba(238, 190, 147, 0.64));
+}
+
+.people-wall::before,
+.people-wall::after {
+  border-color: rgba(140, 51, 39, 0.14);
+}
+
+.people-total {
+  border-color: rgba(255, 225, 171, 0.76);
+  background: radial-gradient(circle at 42% 35%, #df503d, #a61e27 72%);
+  box-shadow: 0 14px 42px rgba(158, 40, 38, 0.22);
+}
+
+.people-group {
+  border-color: rgba(139, 49, 39, 0.24);
+  background: rgba(255, 246, 226, 0.92);
+  color: #57241f;
+  box-shadow: 0 9px 24px rgba(95, 35, 29, 0.11);
+}
+
+.people-group i,
+.people-note {
+  color: rgba(67, 31, 26, 0.53);
+}
+
+.people-group:hover,
+.people-group.active {
+  border-color: rgba(181, 43, 40, 0.58);
+  background: linear-gradient(105deg, #bd2d30, #df4c3c);
+  color: #fff9ec;
+}
+
+.people-group:hover i,
+.people-group.active i {
+  color: rgba(255, 247, 230, 0.72);
+}
+
+.meeting-table-zone {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(212, 86, 46, 0.18), transparent 46%),
+    linear-gradient(145deg, #f6e2c8, #edc49f);
+}
+
+.meeting-facts {
+  border-bottom-color: rgba(111, 43, 34, 0.19);
+  color: rgba(67, 31, 26, 0.55);
+}
+
+.meeting-facts b {
+  color: #a32327;
+}
+
+.table-surface {
+  border-color: rgba(255, 218, 160, 0.48);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07), transparent 15% 85%, rgba(84, 21, 18, 0.1)),
+    linear-gradient(165deg, #a84531, #6f211f 64%, #983326);
+  box-shadow: 0 22px 38px rgba(94, 32, 26, 0.23), inset 0 0 35px rgba(255, 195, 117, 0.14);
+}
+
+.table-surface span {
+  color: rgba(255, 228, 180, 0.66);
+}
+
+.table-surface b {
+  color: rgba(255, 246, 226, 0.63);
+}
+
+.table-tag {
+  border-color: rgba(125, 44, 35, 0.23);
+  background: rgba(255, 247, 229, 0.93);
+  color: rgba(68, 29, 25, 0.76);
+  box-shadow: 0 8px 21px rgba(88, 30, 26, 0.1);
+}
+
+.table-tag:hover,
+.table-tag.active {
+  border-color: rgba(181, 45, 39, 0.65);
+  background: linear-gradient(105deg, #bd2c30, #df4b3b);
+  color: #fff9ed;
+}
+
+.chair {
+  border-color: rgba(137, 62, 44, 0.28);
+  background: rgba(170, 69, 48, 0.13);
+}
+
+.table-disclaimer {
+  color: rgba(67, 31, 26, 0.5);
+}
+
+.document-shelf {
+  border-color: #9c3028;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 15% 85%, rgba(103, 23, 20, 0.12)),
+    linear-gradient(145deg, #c33b32, #e25b42);
+  box-shadow: 0 20px 50px rgba(110, 33, 29, 0.17), inset 0 0 45px rgba(103, 24, 20, 0.12);
+}
+
+.document-shelf-head {
+  border-bottom-color: rgba(255, 239, 209, 0.34);
+}
+
+.document-shelf-head span,
+.document-process {
+  color: rgba(255, 244, 222, 0.69);
+}
+
+.document-shelf-head b {
+  color: #fff0cf;
+}
+
+.document-shelf > button {
+  border-color: rgba(255, 234, 200, 0.28);
+  background: linear-gradient(180deg, rgba(143, 37, 34, 0.82), rgba(168, 43, 37, 0.88));
+  color: rgba(255, 248, 232, 0.82);
+  box-shadow: 0 3px 0 rgba(113, 28, 27, 0.55);
+}
+
+.document-shelf > button div small,
+.document-shelf > button > i {
+  color: rgba(255, 238, 211, 0.62);
+}
+
+.document-shelf > button:hover,
+.document-shelf > button.active {
+  background: linear-gradient(102deg, #dd4a3b, #ee724c);
+  color: #fffdf5;
+}
+
+.document-footer {
+  border-top-color: rgba(127, 43, 34, 0.2);
+  background: rgba(255, 244, 221, 0.68);
+}
+
+.document-footer span {
+  color: rgba(64, 29, 24, 0.67);
+}
+
+.document-footer b {
+  color: #8d2024;
+}
+
+.practice-field {
+  background:
+    radial-gradient(circle at 65% 35%, rgba(230, 100, 49, 0.2), transparent 34%),
+    linear-gradient(145deg, #f7ddbf, #efbd91);
+}
+
+.practice-field::before {
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(113, 49, 39, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(113, 49, 39, 0.07) 1px, transparent 1px);
+}
+
+.practice-map-label {
+  border-bottom-color: rgba(108, 41, 33, 0.18);
+  color: #4d211c;
+}
+
+.practice-map-label span {
+  color: #a82629;
+}
+
+.practice-field svg path {
+  stroke: rgba(111, 48, 38, 0.46);
+}
+
+.practice-field svg .practice-glow {
+  stroke: rgba(211, 55, 44, 0.94);
+}
+
+.practice-stop {
+  border-color: rgba(131, 45, 36, 0.24);
+  background: rgba(255, 247, 230, 0.92);
+  color: rgba(71, 30, 25, 0.78);
+  box-shadow: 0 8px 22px rgba(91, 30, 26, 0.1);
+}
+
+.practice-stop span,
+.practice-field > p {
+  color: rgba(68, 30, 25, 0.52);
+}
+
+.practice-stop:hover,
+.practice-stop.active {
+  border-color: rgba(181, 45, 39, 0.62);
+  background: linear-gradient(105deg, #c43331, #e45b40);
+  color: #fffaf0;
+}
+
+.practice-stop:hover span,
+.practice-stop.active span {
+  color: rgba(255, 244, 224, 0.72);
+}
+
+.spirit-lights {
+  background:
+    radial-gradient(circle at center, rgba(230, 93, 48, 0.24), transparent 35%),
+    linear-gradient(145deg, #f9d9b6, #efaa78);
+}
+
+.spirit-lights::before {
+  border-color: rgba(129, 43, 34, 0.15);
+  box-shadow:
+    0 0 0 35px rgba(136, 48, 37, 0.03),
+    0 0 0 70px rgba(136, 48, 37, 0.02);
+}
+
+.light-beam {
+  background: linear-gradient(180deg, rgba(255, 245, 193, 0.58), rgba(255, 200, 105, 0.06));
+  opacity: 0.75;
+}
+
+.spirit-center {
+  border-color: rgba(255, 231, 178, 0.7);
+  background: radial-gradient(circle at 42% 35%, #e75a3e, #af222a 70%);
+  box-shadow: 0 16px 55px rgba(163, 42, 37, 0.24);
+}
+
+.spirit-key {
+  border-color: rgba(131, 45, 36, 0.24);
+  background: rgba(255, 247, 230, 0.92);
+  color: rgba(70, 30, 25, 0.72);
+  box-shadow: 0 8px 22px rgba(91, 30, 26, 0.1);
+}
+
+.spirit-key.lit {
+  border-color: rgba(191, 51, 42, 0.45);
+  color: #7e1d22;
+  box-shadow: 0 0 30px rgba(225, 88, 48, 0.14);
+}
+
+.spirit-key.active {
+  background: linear-gradient(105deg, #cc3732, #ea6242);
+  color: #fffaf0;
+  box-shadow: 0 12px 32px rgba(165, 43, 38, 0.2);
+}
+
+.route-file,
+.people-dossier,
+.meeting-record,
+.document-reader,
+.practice-board,
+.spirit-reading {
+  border-top: 5px solid #b52b2e;
+  background:
+    radial-gradient(circle at 14% 7%, rgba(255, 255, 255, 0.58), transparent 32%),
+    linear-gradient(145deg, #fff5df, #edd8b8);
+  box-shadow: 14px 18px 38px rgba(101, 38, 29, 0.15);
+}
+
+.site-main-photo {
+  border-color: rgba(255, 243, 218, 0.44);
+  background: #b83a30;
+  box-shadow: 0 20px 48px rgba(116, 36, 30, 0.18);
+}
+
+.site-main-photo > img {
+  filter: saturate(0.96) contrast(1.02) brightness(1.02);
+}
+
+.photo-vignette {
+  background:
+    linear-gradient(90deg, rgba(154, 37, 35, 0.78), transparent 59%),
+    linear-gradient(0deg, rgba(142, 34, 31, 0.72), transparent 62%);
+}
+
+.photo-filmstrip button {
+  border-color: rgba(255, 239, 211, 0.38);
+  background: #d5563e;
+  color: rgba(255, 250, 238, 0.78);
+}
+
+.photo-filmstrip img {
+  filter: saturate(0.72) brightness(0.78);
+}
+
+.photo-filmstrip button::after {
+  background: linear-gradient(90deg, rgba(174, 40, 37, 0.74), rgba(198, 61, 43, 0.14));
+}
+
+.photo-filmstrip span {
+  color: #ffcf8b;
+}
+
+.photo-filmstrip button:hover img,
+.photo-filmstrip button.active img {
+  filter: saturate(1) brightness(0.96);
+}
+
+.site-observation {
+  border-top-color: #d44738;
+  background: rgba(255, 244, 221, 0.95);
+  box-shadow: 0 14px 34px rgba(104, 36, 29, 0.14);
+}
+
+.site-footer {
+  border-top-color: rgba(255, 241, 217, 0.3);
+  background:
+    radial-gradient(circle at 50% 0, rgba(255, 221, 154, 0.2), transparent 44%),
+    linear-gradient(104deg, #aa2429, #d34237 58%, #eb6545);
+}
+
+.site-footer p small,
+.site-footer blockquote,
+.site-footer > button {
+  color: rgba(255, 247, 231, 0.76);
+}
+
+@media (max-width: 930px) {
+  .museum-map {
+    border-bottom-color: rgba(255, 241, 215, 0.28);
+    box-shadow: 0 8px 24px rgba(112, 28, 27, 0.14);
+  }
+}
+
+@media (max-width: 640px) {
+  .cinematic-hero::after {
+    background:
+      linear-gradient(90deg, rgba(126, 18, 25, 0.92), rgba(201, 54, 42, 0.58)),
+      linear-gradient(0deg, rgba(103, 14, 20, 0.78), transparent 48%, rgba(141, 23, 26, 0.32));
+  }
+
+  .hero-photo {
+    filter: saturate(0.92) contrast(1.02) brightness(0.9);
+  }
+
+  .museum .scene-heading {
+    min-height: 126px;
+  }
+
+  .museum .scene-heading h2 {
+    max-width: 10em;
+    font-size: clamp(29px, 9vw, 36px);
+    line-height: 1.12;
+  }
+
+  .museum .scene-heading > p {
+    max-width: 100%;
+  }
+}

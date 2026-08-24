@@ -38,8 +38,8 @@ const halls: Array<{
     number: '01',
     label: '前夜·路线',
     eyebrow: 'THE ROAD TO ZUNYI',
-    title: '危局如何走到遵义',
-    instruction: '沿路线点亮六个节点，理解会议为何必须召开。',
+    title: '遵义会议之前的危局',
+    instruction: '沿六个关键节点，梳理遵义会议召开前的危局与转兵历程。',
     background: '/zunyi-site-aerial.jpg',
   },
   {
@@ -1454,9 +1454,9 @@ export default function Home() {
           <p>阅读依据</p>
           <div>
             <span><b>史实</b>历史结论、时间节点、会议内容均依据公开权威资料。</span>
-            <span><b>示意</b>路线和会场交互用于梳理关系，不替代专业地图与原始档案。</span>
-            <span><b>图像</b>新闻图片逐项标注来源；封面仅增强原照片吊灯光效，不把视觉处理当作文物信息。</span>
-            <span><b>边界</b>不虚构人物对白，不设置改写历史、阵营选择或历史假设。</span>
+            <span><b>示意</b>路线与会场关系图用于梳理历史脉络，精确地理与原始记录以权威资料为准。</span>
+            <span><b>图像</b>新闻图片均注明来源，视觉化示意与历史照片明确区分。</span>
+            <span><b>边界</b>人物对白、具体座次等无确证细节不作虚构，史实与关系示意明确区分。</span>
           </div>
         </aside>
       </div>
@@ -1523,7 +1523,7 @@ export default function Home() {
           <header>
             <p>ARCHIVE READING ROOM / 资料核验室</p>
             <h2>沿着出处，回到更完整的历史叙述</h2>
-            <span>选择左侧资料抽屉；每条概述均可在原位展开纵向详细介绍。</span>
+            <span>选择一份资料，沿概述、原文与关联展厅继续阅读。</span>
           </header>
           {renderArchive()}
         </section>
@@ -1599,7 +1599,7 @@ export default function Home() {
             <small>历史情境数字展</small>
           </span>
         </button>
-        <div className="topbar-motto">由危局的暗红，走向转折的朱红与光明</div>
+        <div className="topbar-motto">从危局中转折，在实践中走向光明</div>
         <button className="topbar-enter" onClick={enterExhibition} type="button">
           打开展厅地图 <i>⌘</i>
         </button>
@@ -1713,7 +1713,7 @@ export default function Home() {
           <p><span>SCENE 02</span>遵义会议纪念馆革命文物特别展</p>
           <h2 id="artifact-entry-title">见物，见人，<br />见一段真实的长征。</h2>
           <div>
-            <p>轻触进入，文物特展将在眼前整幕展开；馆藏抽屉、检视光镜、文物档案签与历史时间轴依次接续。</p>
+            <p>进入特展，可从馆藏抽屉逐件查看文物形制、细节、流传经过与历史坐标。</p>
             <button onClick={() => switchExperience('artifacts')} type="button">进入革命文物特展 <span>→</span></button>
           </div>
         </div>
@@ -1723,7 +1723,7 @@ export default function Home() {
       <footer className="site-footer">
         <div>
           <span className="brand-seal">遵</span>
-          <p><strong>遵义·决策现场</strong><small>基于公开权威史料制作的补充性数字传播作品</small></p>
+          <p><strong>遵义·决策现场</strong><small>依据公开权威史料策展的遵义会议数字专题展</small></p>
         </div>
         <blockquote>“要运用好遵义会议历史经验，让遵义会议精神永放光芒。”</blockquote>
         <button onClick={() => switchExperience('artifacts')} type="button">继续：革命文物特展 →</button>
