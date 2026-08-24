@@ -1665,6 +1665,14 @@ export default function Home() {
         <section className="archive-hero">
           <div className="archive-hero-grid" aria-hidden="true" />
           <div className="archive-hero-mark" aria-hidden="true">据</div>
+          <div className="archive-fire-scene" aria-hidden="true">
+            <div className="archive-fire-horizon" />
+            <div className="archive-fireline" />
+            <div className="archive-fire-seed"><i /><i /><b /></div>
+            <div className="archive-ember-field">
+              {Array.from({ length: 16 }, (_, index) => <i key={index} />)}
+            </div>
+          </div>
           <div className="archive-hero-copy">
             <p><span>VERIFIED ARCHIVE</span><b>06 组权威公开资料</b></p>
             <h1>每一条结论，<br /><em>都有来处。</em></h1>
@@ -1715,18 +1723,11 @@ export default function Home() {
         </header>
 
         <section className="finale-stage">
-          <div className="finale-flag" aria-hidden="true">
-            <div className="finale-flag-object">
-              <i className="finale-flag-pole" />
-              <div className="finale-flag-stars">
-                <i className="flag-star flag-star-large" />
-                <i className="flag-star flag-star-one" />
-                <i className="flag-star flag-star-two" />
-                <i className="flag-star flag-star-three" />
-                <i className="flag-star flag-star-four" />
-              </div>
-            </div>
-          </div>
+          <div className="finale-rays" aria-hidden="true" />
+          <div className="finale-sun-core" aria-hidden="true" />
+          <div className="finale-orbit orbit-one" aria-hidden="true" />
+          <div className="finale-orbit orbit-two" aria-hidden="true" />
+          <div className="finale-giant-word" aria-hidden="true">光</div>
           <p className="finale-kicker"><span>1935 · 遵义</span><b>从伟大转折走向光明前程</b></p>
           <div className="finale-title">
             <small>遵义会议精神</small>

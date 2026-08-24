@@ -229,6 +229,10 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
 
       <section className="artifact-portal">
         <div className="artifact-portal-grid" aria-hidden="true" />
+        <div className="artifact-flag-scene" aria-hidden="true">
+          <i className="artifact-flag-pole" />
+          <div className="artifact-flag-cloth"><span /><span /><span /></div>
+        </div>
         <figure className="portal-object portal-object-clock"><img src={assetPath('/artifacts/clock.png')} alt="" /></figure>
         <figure className="portal-object portal-object-flag"><img src={assetPath('/artifacts/flag.png')} alt="" /></figure>
         <figure className="portal-object portal-object-seal"><img src={assetPath('/artifacts/seal.png')} alt="" /></figure>
