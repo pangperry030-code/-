@@ -1566,6 +1566,67 @@ export default function Home() {
     );
   };
 
+  const renderHallAtmosphere = () => {
+    if (activeHall === 'crisis') {
+      return (
+        <div className="hall-object-layer hall-object-crisis" aria-hidden="true">
+          <div className="motion-compass"><span /><i /><b>1935</b></div>
+          <div className="motion-march"><i /><i /><i /></div>
+        </div>
+      );
+    }
+
+    if (activeHall === 'people') {
+      return (
+        <div className="hall-object-layer hall-object-people" aria-hidden="true">
+          <div className="motion-roster"><i /><i /><i /><i /></div>
+        </div>
+      );
+    }
+
+    if (activeHall === 'meeting') {
+      return (
+        <div className="hall-object-layer hall-object-meeting" aria-hidden="true">
+          <div className="motion-lamp"><i /><span /><b /><em /></div>
+        </div>
+      );
+    }
+
+    if (activeHall === 'decision') {
+      return (
+        <div className="hall-object-layer hall-object-decision" aria-hidden="true">
+          <div className="motion-documents"><i /><i /><i /><b>决</b></div>
+        </div>
+      );
+    }
+
+    if (activeHall === 'practice') {
+      return (
+        <div className="hall-object-layer hall-object-practice" aria-hidden="true">
+          <div className="motion-route-object"><span /><i /><i /><i /><b /></div>
+        </div>
+      );
+    }
+
+    if (activeHall === 'spirit') {
+      return (
+        <div className="hall-object-layer hall-object-spirit" aria-hidden="true">
+          <div className="motion-torch">
+            <span /><i />
+            <b className="torch-ray ray-one" /><b className="torch-ray ray-two" />
+            <b className="torch-ray ray-three" /><b className="torch-ray ray-four" />
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="hall-object-layer hall-object-site" aria-hidden="true">
+        <div className="motion-red-ribbon"><span /><i /></div>
+      </div>
+    );
+  };
+
   const renderHall = () => {
     if (activeHall === 'crisis') return renderCrisis();
     if (activeHall === 'people') return renderPeople();
@@ -1655,12 +1716,15 @@ export default function Home() {
 
         <section className="finale-stage">
           <div className="finale-flag" aria-hidden="true">
-            <div className="finale-flag-stars">
-              <i className="flag-star flag-star-large" />
-              <i className="flag-star flag-star-one" />
-              <i className="flag-star flag-star-two" />
-              <i className="flag-star flag-star-three" />
-              <i className="flag-star flag-star-four" />
+            <div className="finale-flag-object">
+              <i className="finale-flag-pole" />
+              <div className="finale-flag-stars">
+                <i className="flag-star flag-star-large" />
+                <i className="flag-star flag-star-one" />
+                <i className="flag-star flag-star-two" />
+                <i className="flag-star flag-star-three" />
+                <i className="flag-star flag-star-four" />
+              </div>
             </div>
           </div>
           <p className="finale-kicker"><span>1935 · 遵义</span><b>从伟大转折走向光明前程</b></p>
@@ -1791,6 +1855,7 @@ export default function Home() {
             aria-hidden="true"
           />
           <div className="hall-overlay" aria-hidden="true" />
+          {renderHallAtmosphere()}
           <header className="scene-heading">
             <div>
               <span>{hall.eyebrow}</span>

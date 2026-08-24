@@ -5744,57 +5744,87 @@ a:focus-visible {
 .finale-flag {
   position: absolute;
   z-index: 0;
-  inset: -8%;
+  inset: 0;
   overflow: hidden;
   background:
-    linear-gradient(103deg, rgba(115, 0, 10, 0.2), transparent 18% 77%, rgba(255, 100, 58, 0.2)),
-    repeating-linear-gradient(102deg, rgba(255, 255, 255, 0.055) 0 5%, rgba(126, 0, 12, 0.06) 9% 14%, rgba(255, 72, 49, 0.07) 19% 25%),
-    linear-gradient(128deg, #c80718 0%, #e61720 50%, #ef2d24 76%, #f25132 100%);
-  background-size: 100% 100%, 230px 100%, 100% 100%;
-  transform-origin: 0 50%;
-  animation: flagFieldWave 9s ease-in-out infinite alternate;
+    radial-gradient(circle at 74% 38%, rgba(255, 153, 78, 0.25), transparent 27%),
+    linear-gradient(128deg, #bd0616 0%, #df111d 52%, #ee3628 100%);
 }
 
 .finale-flag::before {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(96deg, transparent 0 14%, rgba(255, 231, 183, 0.12) 23%, transparent 34% 58%, rgba(255, 217, 160, 0.09) 69%, transparent 81%),
-    repeating-linear-gradient(0deg, transparent 0 5px, rgba(255, 234, 202, 0.018) 6px 7px);
-  background-size: 220% 100%, 100% 100%;
+    linear-gradient(90deg, rgba(102, 0, 11, 0.22), transparent 34% 72%, rgba(117, 0, 13, 0.18)),
+    repeating-linear-gradient(0deg, transparent 0 6px, rgba(255, 236, 209, 0.018) 7px 8px);
   content: "";
-  animation: flagSilkGlint 8s ease-in-out infinite;
 }
 
-.finale-flag::after {
+.finale-flag-object {
   position: absolute;
-  inset: 0;
+  top: 92px;
+  right: 3.5vw;
+  width: min(42vw, 680px);
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border: 1px solid rgba(255, 222, 98, 0.46);
   background:
-    radial-gradient(circle at 72% 45%, rgba(255, 144, 72, 0.24), transparent 29%),
-    linear-gradient(90deg, rgba(115, 0, 10, 0.17), transparent 34% 72%, rgba(124, 0, 13, 0.14));
+    repeating-linear-gradient(101deg, rgba(255, 255, 255, 0.055) 0 8%, rgba(123, 0, 11, 0.07) 14% 21%, rgba(255, 72, 43, 0.05) 27% 34%),
+    #de0a17;
+  box-shadow: 0 28px 75px rgba(100, 0, 10, 0.26);
+  transform-origin: 0 50%;
+  will-change: transform;
+  animation: finaleFlagWave 5.2s ease-in-out infinite alternate;
+}
+
+.finale-flag-object::before {
+  position: absolute;
+  z-index: 1;
+  top: -20%;
+  bottom: -20%;
+  left: -38%;
+  width: 34%;
+  background: linear-gradient(90deg, transparent, rgba(255, 227, 166, 0.18), transparent);
+  content: "";
+  transform: skewX(-12deg);
+  will-change: transform;
+  animation: finaleFlagFold 4.4s ease-in-out infinite;
+}
+
+.finale-flag-object::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(100, 0, 11, 0.14), transparent 22% 76%, rgba(108, 0, 12, 0.18));
   content: "";
 }
 
-@keyframes flagFieldWave {
-  from { background-position: center, -50px 0, center; transform: scale(1.015) skewY(-0.4deg); }
-  to { background-position: center, 80px 0, center; transform: scale(1.045) skewY(0.55deg) translateX(0.8%); }
+@keyframes finaleFlagWave {
+  from { transform: perspective(900px) rotateY(-6deg) skewY(-0.8deg) translate3d(0, 3px, 0); }
+  to { transform: perspective(900px) rotateY(7deg) skewY(1deg) translate3d(6px, -4px, 0); }
 }
 
-@keyframes flagSilkGlint {
-  0%, 100% { background-position: 110% 0, 0 0; opacity: 0.58; }
-  50% { background-position: -110% 0, 0 7px; opacity: 0.9; }
+@keyframes finaleFlagFold {
+  0%, 100% { transform: translateX(0) skewX(-12deg); opacity: 0.35; }
+  50% { transform: translateX(390%) skewX(-12deg); opacity: 0.85; }
+}
+
+.finale-flag-pole {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 7px;
+  background: linear-gradient(90deg, #9d6b24, #f0c56f 55%, #9d6b24);
+  box-shadow: 5px 0 12px rgba(84, 0, 8, 0.2);
 }
 
 .finale-flag-stars {
   position: absolute;
-  z-index: 2;
-  top: 7%;
-  right: 1.5%;
-  width: min(46vw, 720px);
-  aspect-ratio: 3 / 2;
-  filter: drop-shadow(0 8px 20px rgba(121, 43, 0, 0.16));
-  opacity: 0.8;
-  animation: flagStarsBreathe 6s ease-in-out infinite alternate;
+  z-index: 3;
+  inset: 0;
+  filter: drop-shadow(0 5px 12px rgba(121, 43, 0, 0.13));
 }
 
 .flag-star {
@@ -5812,11 +5842,6 @@ a:focus-visible {
 .flag-star-two { --star-rotation: -98deg; top: 20%; left: 40%; }
 .flag-star-three { --star-rotation: -74deg; top: 35%; left: 40%; }
 .flag-star-four { --star-rotation: -51deg; top: 45%; left: 33.3333%; }
-
-@keyframes flagStarsBreathe {
-  from { filter: brightness(0.96); transform: translateY(-0.6%); }
-  to { filter: brightness(1.08); transform: translateY(0.8%); }
-}
 
 .finale-kicker,
 .finale-title,
@@ -6348,7 +6373,7 @@ a:focus-visible {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 36px;
-    padding: 132px 58px 80px;
+    padding: min(70vw, 540px) 58px 80px;
   }
 
   .finale-kicker,
@@ -6374,11 +6399,10 @@ a:focus-visible {
     max-width: 760px;
   }
 
-  .finale-flag-stars {
-    top: 5%;
-    right: -8%;
-    width: min(70vw, 660px);
-    opacity: 0.34;
+  .finale-flag-object {
+    top: 82px;
+    right: 8%;
+    width: min(68vw, 620px);
   }
 
 }
@@ -6475,14 +6499,13 @@ a:focus-visible {
 
   .finale-stage {
     gap: 30px;
-    padding: 112px 23px 60px;
+    padding: clamp(360px, 96vw, 450px) 23px 60px;
   }
 
-  .finale-flag-stars {
-    top: 3%;
-    right: -18%;
-    width: 90vw;
-    opacity: 0.28;
+  .finale-flag-object {
+    top: 82px;
+    right: 7vw;
+    width: 86vw;
   }
 
   .finale-kicker {
@@ -7325,116 +7348,457 @@ a:focus-visible {
   color: rgba(255, 247, 231, 0.76);
 }
 
-/* Each hall has its own slow-moving visual metaphor instead of one repeated light effect. */
+/* One concrete, GPU-composited object runs in the active hall. Large animated
+   gradients were removed because they repainted the entire viewport on phones. */
 
 .museum .hall-stage::after {
+  display: none;
+}
+
+.hall-object-layer {
   position: absolute;
-  z-index: -1;
-  inset: -12%;
-  content: "";
-  opacity: 0.34;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  contain: paint;
   pointer-events: none;
-  will-change: transform, background-position, opacity;
 }
 
-.museum.hall-crisis .hall-stage::after {
+.hall-object-layer > div {
+  position: absolute;
+  will-change: transform, opacity;
+}
+
+/* 01 / 罗盘与行军点 */
+
+.motion-compass {
+  right: 4%;
+  bottom: 4%;
+  width: clamp(150px, 19vw, 270px);
+  aspect-ratio: 1;
+  border: 2px solid rgba(154, 47, 38, 0.24);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: compassObjectFloat 7s ease-in-out infinite alternate;
+}
+
+.motion-compass::before,
+.motion-compass::after {
+  position: absolute;
+  inset: 11%;
+  border: 1px solid rgba(154, 47, 38, 0.2);
+  border-radius: 50%;
+  content: "";
+}
+
+.motion-compass::after {
+  inset: 48% 7%;
+  border: 0;
+  border-top: 1px solid rgba(154, 47, 38, 0.24);
+  border-radius: 0;
+}
+
+.motion-compass span {
+  position: absolute;
+  inset: 7% 49%;
+  border-left: 1px solid rgba(154, 47, 38, 0.24);
+}
+
+.motion-compass i {
+  position: absolute;
+  top: 17%;
+  left: 49%;
+  width: 3px;
+  height: 40%;
+  border-radius: 3px;
+  background: #d64036;
+  transform-origin: 50% 82%;
+  animation: compassNeedle 8s ease-in-out infinite;
+}
+
+.motion-compass i::after {
+  position: absolute;
+  bottom: -18px;
+  left: -6px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #b82b2d;
+  content: "";
+}
+
+.motion-compass b {
+  position: absolute;
+  right: 0;
+  bottom: 18%;
+  left: 0;
+  color: rgba(112, 38, 32, 0.5);
+  font-family: Georgia, serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-align: center;
+}
+
+.motion-march {
+  right: 10%;
+  bottom: 8%;
+  width: clamp(170px, 26vw, 360px);
+  height: 4px;
+  background: rgba(190, 55, 44, 0.2);
+  transform: rotate(-28deg);
+}
+
+.motion-march i {
+  position: absolute;
+  top: -5px;
+  width: 13px;
+  height: 13px;
+  border: 3px solid #f8ddbc;
+  border-radius: 50%;
+  background: #d64036;
+  box-shadow: 0 0 0 2px rgba(183, 42, 40, 0.3);
+  animation: marchMarker 4.8s ease-in-out infinite;
+}
+
+.motion-march i:nth-child(1) { left: 4%; }
+.motion-march i:nth-child(2) { left: 48%; animation-delay: -1.6s; }
+.motion-march i:nth-child(3) { right: 2%; animation-delay: -3.2s; }
+
+@keyframes compassObjectFloat {
+  from { transform: translate3d(0, 5px, 0) rotate(-2deg); }
+  to { transform: translate3d(-8px, -7px, 0) rotate(2deg); }
+}
+
+@keyframes compassNeedle {
+  0%, 100% { transform: rotate(-28deg); }
+  50% { transform: rotate(36deg); }
+}
+
+@keyframes marchMarker {
+  0%, 100% { transform: scale(0.78); opacity: 0.38; }
+  50% { transform: scale(1.18); opacity: 0.9; }
+}
+
+/* 02 / 人物档案卡 */
+
+.motion-roster {
+  top: 18%;
+  right: 3%;
+  width: clamp(220px, 30vw, 430px);
+  height: 58%;
+  opacity: 0.2;
+}
+
+.motion-roster i {
+  --roster-x: 0%;
+  --roster-rotation: 0deg;
+  position: absolute;
+  top: 12%;
+  left: 22%;
+  width: 42%;
+  aspect-ratio: 0.72;
+  border: 5px solid rgba(255, 244, 218, 0.72);
   background:
-    repeating-radial-gradient(ellipse at 14% 82%, transparent 0 38px, rgba(151, 61, 43, 0.18) 39px 40px, transparent 41px 73px),
-    repeating-radial-gradient(ellipse at 80% 14%, transparent 0 52px, rgba(190, 68, 45, 0.11) 53px 54px, transparent 55px 92px);
-  animation: crisisContours 20s ease-in-out infinite alternate;
+    radial-gradient(circle at 50% 34%, #bd4437 0 12%, transparent 13%),
+    radial-gradient(ellipse at 50% 88%, #a92d2e 0 34%, transparent 35%),
+    #f0cfa6;
+  box-shadow: 0 16px 32px rgba(94, 31, 27, 0.13);
+  transform-origin: 50% 110%;
+  animation: rosterCardFan 7s ease-in-out infinite alternate;
 }
 
-@keyframes crisisContours {
-  from { transform: translate3d(-2%, 2%, 0) scale(1.02); }
-  to { transform: translate3d(3%, -2.5%, 0) scale(1.07); }
+.motion-roster i:nth-child(1) { --roster-x: -72%; --roster-rotation: -13deg; }
+.motion-roster i:nth-child(2) { --roster-x: -24%; --roster-rotation: -4deg; animation-delay: -1.2s; }
+.motion-roster i:nth-child(3) { --roster-x: 25%; --roster-rotation: 5deg; animation-delay: -2.4s; }
+.motion-roster i:nth-child(4) { --roster-x: 72%; --roster-rotation: 13deg; animation-delay: -3.6s; }
+
+@keyframes rosterCardFan {
+  from { opacity: 0.58; transform: translate3d(var(--roster-x), 8px, 0) rotate(var(--roster-rotation)); }
+  to { opacity: 0.9; transform: translate3d(var(--roster-x), -7px, 0) rotate(var(--roster-rotation)); }
 }
 
-.museum.hall-people .hall-stage::after {
+/* 03 / 会场吊灯 */
+
+.motion-lamp {
+  top: 0;
+  right: 8%;
+  width: clamp(150px, 17vw, 250px);
+  height: 46%;
+  transform-origin: 50% 0;
+  animation: meetingLampSway 6s ease-in-out infinite alternate;
+}
+
+.motion-lamp > i {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 43%;
+  background: rgba(90, 33, 28, 0.42);
+}
+
+.motion-lamp > span {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 72px;
+  height: 35px;
+  border-radius: 50% 50% 16% 16%;
+  background: linear-gradient(180deg, #9d2b2c, #cf4b39);
+  transform: translateX(-50%);
+  box-shadow: 0 8px 16px rgba(106, 34, 29, 0.16);
+}
+
+.motion-lamp > b {
+  position: absolute;
+  top: calc(40% + 28px);
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffd388;
+  transform: translateX(-50%);
+  animation: meetingBulbPulse 3.2s ease-in-out infinite;
+}
+
+.motion-lamp > em {
+  position: absolute;
+  top: calc(40% + 39px);
+  left: 50%;
+  width: 190px;
+  height: 210px;
+  background: linear-gradient(180deg, rgba(255, 211, 136, 0.18), transparent 78%);
+  clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%);
+  transform: translateX(-50%);
+}
+
+@keyframes meetingLampSway {
+  from { transform: rotate(-2.2deg); }
+  to { transform: rotate(2.2deg); }
+}
+
+@keyframes meetingBulbPulse {
+  0%, 100% { opacity: 0.72; transform: translateX(-50%) scale(0.92); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+}
+
+/* 04 / 文件与印章 */
+
+.motion-documents {
+  right: 3%;
+  bottom: 2%;
+  width: clamp(230px, 29vw, 420px);
+  height: 62%;
+  opacity: 0.23;
+}
+
+.motion-documents i {
+  --document-x: 0%;
+  --document-rotation: 0deg;
+  position: absolute;
+  right: 8%;
+  bottom: 5%;
+  width: 52%;
+  aspect-ratio: 0.73;
+  border: 1px solid rgba(136, 47, 38, 0.25);
   background:
-    radial-gradient(ellipse 9% 32% at 14% 108%, rgba(130, 41, 34, 0.2) 0 58%, transparent 61%),
-    radial-gradient(ellipse 8% 28% at 34% 105%, rgba(167, 51, 39, 0.16) 0 57%, transparent 60%),
-    radial-gradient(ellipse 10% 35% at 58% 110%, rgba(125, 38, 33, 0.17) 0 58%, transparent 61%),
-    radial-gradient(ellipse 8% 29% at 80% 105%, rgba(174, 55, 40, 0.15) 0 57%, transparent 60%),
-    radial-gradient(circle at 52% 32%, rgba(255, 240, 198, 0.42), transparent 30%);
-  filter: blur(2px);
-  animation: peoplePresence 10s ease-in-out infinite alternate;
+    repeating-linear-gradient(0deg, transparent 0 20px, rgba(116, 48, 39, 0.1) 21px 22px),
+    #f4dfbf;
+  box-shadow: 0 15px 28px rgba(93, 32, 27, 0.12);
+  animation: documentPageLift 6.5s ease-in-out infinite alternate;
 }
 
-@keyframes peoplePresence {
-  from { opacity: 0.24; transform: translateX(-1.2%) scaleY(0.98); }
-  to { opacity: 0.42; transform: translateX(1.2%) scaleY(1.03); }
+.motion-documents i:nth-child(1) { --document-x: -54%; --document-rotation: -9deg; }
+.motion-documents i:nth-child(2) { --document-x: -26%; --document-rotation: -3deg; animation-delay: -1.8s; }
+.motion-documents i:nth-child(3) { --document-rotation: 4deg; animation-delay: -3.4s; }
+
+.motion-documents b {
+  position: absolute;
+  right: 7%;
+  bottom: 9%;
+  display: grid;
+  width: 68px;
+  height: 68px;
+  place-items: center;
+  border: 4px double rgba(177, 38, 38, 0.7);
+  border-radius: 50%;
+  color: #b12629;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 32px;
+  transform: rotate(-12deg);
+  animation: decisionSealStamp 7s ease-in-out infinite;
 }
 
-.museum.hall-meeting .hall-stage::after {
-  background:
-    linear-gradient(112deg, transparent 22%, rgba(255, 243, 202, 0.12) 34%, transparent 46%),
-    repeating-linear-gradient(90deg, transparent 0 92px, rgba(117, 47, 37, 0.08) 93px 95px);
-  transform-origin: 84% 0;
-  animation: meetingWindowLight 15s ease-in-out infinite alternate;
+@keyframes documentPageLift {
+  from { transform: translate3d(var(--document-x), 0, 0) rotate(var(--document-rotation)); }
+  to { transform: translate3d(var(--document-x), -10px, 0) rotate(var(--document-rotation)); }
 }
 
-@keyframes meetingWindowLight {
-  from { opacity: 0.18; transform: skewX(-4deg) translateX(-5%); }
-  to { opacity: 0.42; transform: skewX(3deg) translateX(6%); }
+@keyframes decisionSealStamp {
+  0%, 62%, 100% { opacity: 0.34; transform: rotate(-12deg) scale(1.18); }
+  72%, 88% { opacity: 0.9; transform: rotate(-12deg) scale(0.92); }
 }
 
-.museum.hall-decision .hall-stage::after {
-  background:
-    radial-gradient(circle at 78% 23%, transparent 0 72px, rgba(172, 48, 41, 0.16) 73px 77px, transparent 78px),
-    linear-gradient(180deg, transparent 0 42%, rgba(255, 249, 225, 0.42) 49%, transparent 56%),
-    repeating-linear-gradient(0deg, transparent 0 27px, rgba(111, 51, 40, 0.07) 28px 29px);
-  background-size: 100% 100%, 100% 210%, 100% 100%;
-  animation: documentScan 13s ease-in-out infinite;
+/* 05 / 行进箭头 */
+
+.motion-route-object {
+  right: 3%;
+  bottom: 8%;
+  width: clamp(230px, 34vw, 500px);
+  height: 120px;
+  opacity: 0.32;
+  transform: rotate(-18deg);
 }
 
-@keyframes documentScan {
-  0%, 100% { background-position: center, 0 -85%, center; opacity: 0.25; }
-  50% { background-position: center, 0 90%, center; opacity: 0.42; }
+.motion-route-object > span {
+  position: absolute;
+  top: 58px;
+  right: 24px;
+  left: 0;
+  height: 4px;
+  border-radius: 4px;
+  background: #c83432;
 }
 
-.museum.hall-practice .hall-stage::after {
-  background:
-    linear-gradient(100deg, transparent 12%, rgba(226, 76, 48, 0.16) 22%, transparent 34%),
-    repeating-linear-gradient(90deg, transparent 0 47px, rgba(121, 48, 38, 0.08) 48px 49px);
-  background-size: 220% 100%, 100% 100%;
-  animation: practiceCoordinateSweep 12s linear infinite;
+.motion-route-object > span::after {
+  position: absolute;
+  top: -9px;
+  right: -5px;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 22px solid #c83432;
+  content: "";
 }
 
-@keyframes practiceCoordinateSweep {
-  from { background-position: 110% 0, 0 0; }
-  to { background-position: -110% 0, 49px 0; }
+.motion-route-object > i {
+  position: absolute;
+  top: 50px;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #f5dbb9;
+  border-radius: 50%;
+  background: #c83432;
 }
 
-.museum.hall-spirit .hall-stage::after {
-  background:
-    radial-gradient(circle at 26% 28%, rgba(255, 241, 182, 0.26), transparent 18%),
-    radial-gradient(circle at 74% 32%, rgba(255, 219, 139, 0.22), transparent 19%),
-    radial-gradient(circle at 50% 76%, rgba(231, 79, 46, 0.15), transparent 25%);
-  animation: spiritAurora 9s ease-in-out infinite alternate;
+.motion-route-object > i:nth-of-type(1) { left: 8%; }
+.motion-route-object > i:nth-of-type(2) { left: 46%; }
+.motion-route-object > i:nth-of-type(3) { right: 12%; }
+
+.motion-route-object > b {
+  position: absolute;
+  top: 49px;
+  left: 4%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffd18b;
+  animation: routeObjectTravel 6.5s ease-in-out infinite;
 }
 
-@keyframes spiritAurora {
-  from { opacity: 0.22; transform: scale(0.98); }
-  to { opacity: 0.46; transform: scale(1.06); }
+@keyframes routeObjectTravel {
+  from { transform: translateX(0) scale(0.7); opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  to { transform: translateX(clamp(190px, 28vw, 410px)) scale(1); opacity: 0; }
 }
 
-.museum.hall-site .hall-stage::after {
-  background: linear-gradient(90deg, rgba(255, 248, 224, 0.08), transparent 34% 68%, rgba(218, 63, 43, 0.12));
-  animation: siteVignetteBreathe 8s ease-in-out infinite alternate;
+/* 06 / 火炬与光束 */
+
+.motion-torch {
+  right: 6%;
+  bottom: 0;
+  width: clamp(150px, 20vw, 280px);
+  height: 58%;
+  opacity: 0.36;
 }
 
-.museum.hall-site .hall-backdrop {
-  animation: sitePhotoDrift 20s ease-in-out infinite alternate;
+.motion-torch > i {
+  position: absolute;
+  bottom: -5%;
+  left: 47%;
+  width: 30px;
+  height: 62%;
+  border-radius: 6px 6px 16px 16px;
+  background: linear-gradient(90deg, #8f2929, #d4573d 55%, #8f2929);
+  transform: skew(-4deg);
 }
 
-@keyframes siteVignetteBreathe {
-  from { opacity: 0.18; }
-  to { opacity: 0.42; }
+.motion-torch > span {
+  position: absolute;
+  z-index: 2;
+  top: 8%;
+  left: 50%;
+  width: 68px;
+  height: 105px;
+  border-radius: 62% 38% 56% 44% / 72% 60% 40% 28%;
+  background: linear-gradient(160deg, #fff0a5 0 18%, #ffbd48 44%, #ec3d2f 76%);
+  transform-origin: 50% 100%;
+  animation: torchFlame 2.2s ease-in-out infinite alternate;
 }
 
-@keyframes sitePhotoDrift {
-  from { transform: scale(1.04) translate3d(-0.8%, 0, 0); }
-  to { transform: scale(1.1) translate3d(1.2%, -0.8%, 0); }
+.torch-ray {
+  position: absolute;
+  top: 24%;
+  left: 53%;
+  width: 130px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(234, 76, 42, 0.45), transparent);
+  transform-origin: 0 50%;
+  animation: torchRayPulse 3.4s ease-in-out infinite alternate;
+}
+
+.torch-ray.ray-one { transform: rotate(-58deg); }
+.torch-ray.ray-two { transform: rotate(-20deg); animation-delay: -0.8s; }
+.torch-ray.ray-three { transform: rotate(20deg); animation-delay: -1.6s; }
+.torch-ray.ray-four { transform: rotate(58deg); animation-delay: -2.4s; }
+
+@keyframes torchFlame {
+  from { transform: translateX(-50%) rotate(-3deg) scale(0.94, 1.02); }
+  to { transform: translateX(-50%) rotate(3deg) scale(1.05, 0.96); }
+}
+
+@keyframes torchRayPulse {
+  from { opacity: 0.2; }
+  to { opacity: 0.8; }
+}
+
+/* 07 / 会址红绸 */
+
+.motion-red-ribbon {
+  top: 13%;
+  right: 3%;
+  width: clamp(190px, 28vw, 400px);
+  height: 190px;
+  opacity: 0.28;
+}
+
+.motion-red-ribbon span {
+  position: absolute;
+  top: 42%;
+  right: 0;
+  width: 92%;
+  height: 58px;
+  background: linear-gradient(90deg, #bd2d30, #e65740 58%, #bd2d30);
+  clip-path: polygon(0 10%, 93% 0, 100% 50%, 93% 100%, 0 82%, 6% 48%);
+  transform-origin: 0 50%;
+  animation: siteRibbonWave 5s ease-in-out infinite alternate;
+}
+
+.motion-red-ribbon i {
+  position: absolute;
+  top: 23%;
+  left: 0;
+  width: 7px;
+  height: 135px;
+  border-radius: 7px;
+  background: #9e3430;
+}
+
+@keyframes siteRibbonWave {
+  from { transform: perspective(500px) rotateY(-8deg) skewY(-2deg); }
+  to { transform: perspective(500px) rotateY(8deg) skewY(2deg) translateX(5px); }
 }
 
 .artifact-entry,
@@ -7462,24 +7826,7 @@ a:focus-visible {
 .artifact-handoff::after,
 .archive-hero::before,
 .archive-page-reader::before {
-  position: absolute;
-  z-index: 0;
-  inset: -10%;
-  content: "";
-  pointer-events: none;
-  will-change: transform, background-position, opacity;
-}
-
-.artifact-entry::after {
-  background:
-    radial-gradient(ellipse 24% 68% at 18% 22%, rgba(255, 239, 189, 0.28), transparent 64%),
-    radial-gradient(ellipse 20% 62% at 82% 34%, rgba(255, 223, 158, 0.24), transparent 66%);
-  animation: artifactSpotlights 14s ease-in-out infinite alternate;
-}
-
-@keyframes artifactSpotlights {
-  from { opacity: 0.44; transform: translateX(-3%) rotate(-2deg); }
-  to { opacity: 0.82; transform: translateX(4%) rotate(2deg); }
+  display: none;
 }
 
 .artifact-entry-collage figure {
@@ -7510,19 +7857,6 @@ a:focus-visible {
     linear-gradient(118deg, #b62930, #d9483d 52%, #ed7a51);
 }
 
-.artifact-portal::after {
-  background:
-    linear-gradient(108deg, transparent 24%, rgba(255, 247, 210, 0.22) 38%, transparent 49%),
-    repeating-linear-gradient(90deg, transparent 0 72px, rgba(255, 236, 195, 0.04) 73px 74px);
-  background-size: 230% 100%, 100% 100%;
-  animation: portalGlassSweep 11s ease-in-out infinite;
-}
-
-@keyframes portalGlassSweep {
-  0%, 100% { background-position: 115% 0, 0 0; opacity: 0.25; }
-  50% { background-position: -110% 0, 74px 0; opacity: 0.62; }
-}
-
 .artifact-portal-grid {
   z-index: 1;
   opacity: 0.46;
@@ -7531,6 +7865,26 @@ a:focus-visible {
 .portal-object {
   border-color: #f1e2c4;
   box-shadow: 20px 28px 58px rgba(104, 29, 27, 0.27);
+  will-change: transform;
+}
+
+.portal-object-clock { animation: portalClockFloat 6.8s ease-in-out infinite alternate; }
+.portal-object-flag { animation: portalFlagFloat 7.6s ease-in-out infinite alternate; }
+.portal-object-seal { animation: portalSealFloat 6.2s ease-in-out infinite alternate; }
+
+@keyframes portalClockFloat {
+  from { transform: translate3d(0, 5px, 0) rotate(2deg); }
+  to { transform: translate3d(-8px, -7px, 0) rotate(4deg); }
+}
+
+@keyframes portalFlagFloat {
+  from { transform: translate3d(0, 7px, 0) rotate(-5deg); }
+  to { transform: translate3d(9px, -5px, 0) rotate(-3deg); }
+}
+
+@keyframes portalSealFloat {
+  from { transform: translate3d(0, -3px, 0) rotate(5deg); }
+  to { transform: translate3d(-7px, 8px, 0) rotate(7deg); }
 }
 
 .artifact-portal-copy > div p,
@@ -7548,21 +7902,7 @@ a:focus-visible {
 }
 
 .artifact-desk::before {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  background:
-    linear-gradient(94deg, transparent 12%, rgba(255, 241, 205, 0.15) 29%, transparent 43%),
-    repeating-linear-gradient(7deg, transparent 0 18px, rgba(112, 34, 31, 0.05) 19px 20px);
-  background-size: 240% 100%, 100% 100%;
-  content: "";
-  pointer-events: none;
-  animation: artifactDeskGrain 16s ease-in-out infinite;
-}
-
-@keyframes artifactDeskGrain {
-  0%, 100% { background-position: 105% 0, 0 0; opacity: 0.38; }
-  50% { background-position: -105% 0, 24px 9px; opacity: 0.72; }
+  display: none;
 }
 
 .artifact-desk > * {
@@ -7607,6 +7947,15 @@ a:focus-visible {
   background: #a73331;
 }
 
+.artifact-drawers > button.active em {
+  animation: drawerHandlePulse 2.8s ease-in-out infinite;
+}
+
+@keyframes drawerHandlePulse {
+  0%, 100% { transform: scale(0.92); }
+  50% { transform: scale(1.14); }
+}
+
 .artifact-inspection {
   border-color: rgba(255, 242, 218, 0.48);
   background: rgba(255, 235, 204, 0.2);
@@ -7644,18 +7993,6 @@ a:focus-visible {
     linear-gradient(112deg, #b62b31 0%, #da483b 52%, #ef7650 100%);
 }
 
-.artifact-handoff::after {
-  background:
-    repeating-linear-gradient(118deg, transparent 0 58px, rgba(255, 237, 188, 0.09) 60px 74px, transparent 76px 132px);
-  background-size: 180% 100%;
-  animation: handoffRibbon 18s linear infinite;
-}
-
-@keyframes handoffRibbon {
-  from { background-position: 0 0; transform: translateX(-4%); }
-  to { background-position: 420px 0; transform: translateX(4%); }
-}
-
 .archive-page {
   background: #d7483c;
 }
@@ -7664,20 +8001,6 @@ a:focus-visible {
   background:
     linear-gradient(96deg, rgba(178, 37, 43, 0.94) 0%, rgba(215, 65, 52, 0.88) 54%, rgba(239, 126, 75, 0.72) 100%),
     var(--meeting-room-image) center / cover no-repeat;
-}
-
-.archive-hero::before {
-  background:
-    linear-gradient(90deg, transparent 0 54%, rgba(255, 245, 214, 0.18) 61%, transparent 68%),
-    repeating-linear-gradient(0deg, transparent 0 45px, rgba(255, 240, 207, 0.075) 46px 47px),
-    repeating-linear-gradient(90deg, transparent 0 132px, rgba(255, 240, 207, 0.055) 133px 134px);
-  background-size: 240% 100%, 100% 100%, 100% 100%;
-  animation: archiveIndexScan 15s ease-in-out infinite;
-}
-
-@keyframes archiveIndexScan {
-  0%, 100% { background-position: 115% 0, 0 0, 0 0; opacity: 0.28; }
-  50% { background-position: -115% 0, 0 47px, 134px 0; opacity: 0.58; }
 }
 
 .archive-hero::after {
@@ -7693,6 +8016,13 @@ a:focus-visible {
 .archive-hero-mark {
   z-index: 1;
   color: rgba(255, 231, 177, 0.11);
+  will-change: transform, opacity;
+  animation: archiveMarkFloat 9s ease-in-out infinite alternate;
+}
+
+@keyframes archiveMarkFloat {
+  from { opacity: 0.62; transform: translate3d(0, 8px, 0) rotate(-7deg); }
+  to { opacity: 1; transform: translate3d(-10px, -7px, 0) rotate(-4deg); }
 }
 
 .archive-hero-copy,
@@ -7717,19 +8047,6 @@ a:focus-visible {
   background:
     radial-gradient(circle at 83% 8%, rgba(255, 222, 164, 0.32), transparent 30%),
     linear-gradient(132deg, #b82a31, #dc4a3d 56%, #ef8053);
-}
-
-.archive-page-reader::before {
-  background:
-    radial-gradient(circle, rgba(255, 239, 203, 0.2) 0 1px, transparent 1.8px),
-    linear-gradient(112deg, transparent 18%, rgba(255, 231, 185, 0.1) 36%, transparent 51%);
-  background-size: 34px 34px, 220% 100%;
-  animation: archivePaperDrift 18s ease-in-out infinite;
-}
-
-@keyframes archivePaperDrift {
-  0%, 100% { background-position: 0 0, 110% 0; opacity: 0.24; transform: translateY(-1%); }
-  50% { background-position: 17px 34px, -105% 0; opacity: 0.48; transform: translateY(1%); }
 }
 
 .archive-page-reader > * {
@@ -7780,6 +8097,15 @@ a:focus-visible {
 .archive-cabinet button i {
   border-color: rgba(154, 49, 38, 0.38);
   background: #d95842;
+}
+
+.archive-cabinet button.active i {
+  animation: archiveDrawerPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes archiveDrawerPulse {
+  0%, 100% { transform: translateX(0) scale(0.9); }
+  50% { transform: translateX(4px) scale(1.12); }
 }
 
 .archive-cabinet button:hover,
@@ -7947,6 +8273,14 @@ a:focus-visible {
   .practice-stop .practice-stop-card {
     width: 154px;
   }
+
+  .motion-compass { right: 2%; width: 190px; }
+  .motion-roster { right: -4%; width: 300px; }
+  .motion-lamp { right: 2%; width: 180px; }
+  .motion-documents { right: -4%; width: 290px; }
+  .motion-route-object { right: -4%; width: 330px; }
+  .motion-torch { right: 0; width: 190px; }
+  .motion-red-ribbon { right: -3%; width: 260px; }
 }
 
 @media (max-width: 640px) {
@@ -7972,6 +8306,91 @@ a:focus-visible {
 
   .museum .scene-heading > p {
     max-width: 100%;
+  }
+
+  .hall-object-layer {
+    top: 105px;
+    bottom: auto;
+    height: 250px;
+    opacity: 0.68;
+  }
+
+  .motion-compass {
+    right: -24px;
+    bottom: -24px;
+    width: 155px;
+  }
+
+  .motion-march,
+  .motion-roster i:nth-child(4),
+  .torch-ray.ray-two,
+  .torch-ray.ray-four {
+    display: none;
+  }
+
+  .motion-roster {
+    top: 18px;
+    right: -52px;
+    width: 235px;
+    height: 205px;
+  }
+
+  .motion-lamp {
+    top: -105px;
+    right: -12px;
+    width: 145px;
+    height: 330px;
+  }
+
+  .motion-lamp > em {
+    width: 130px;
+    height: 145px;
+  }
+
+  .motion-documents {
+    right: -45px;
+    bottom: -22px;
+    width: 235px;
+    height: 230px;
+  }
+
+  .motion-documents b {
+    width: 54px;
+    height: 54px;
+    font-size: 25px;
+  }
+
+  .motion-route-object {
+    right: -72px;
+    bottom: 3px;
+    width: 290px;
+    height: 105px;
+    opacity: 0.72;
+  }
+
+  .motion-route-object > b {
+    animation-duration: 8s;
+  }
+
+  .motion-torch {
+    right: -25px;
+    bottom: -34px;
+    width: 155px;
+    height: 270px;
+  }
+
+  .motion-red-ribbon {
+    top: 24px;
+    right: -42px;
+    width: 240px;
+    height: 165px;
+  }
+
+  .finale-values,
+  .archive-hero > aside,
+  .site-main-photo figcaption {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
   .practice-track {
