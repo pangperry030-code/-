@@ -1540,7 +1540,6 @@ export default function Home() {
         <article className="archive-reader" key={item.number}>
           {renderNote(
             <>
-              <div className="archive-stamp">已核</div>
               <p>资料抽屉 / {item.number}</p>
               <h3>{item.title}</h3>
               <strong>{item.org}</strong>

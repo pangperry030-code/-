@@ -229,15 +229,29 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
 
       <section className="artifact-portal">
         <div className="artifact-portal-grid" aria-hidden="true" />
-        <div className="artifact-evidence-stage" aria-hidden="true">
-          <div className="evidence-lamp"><i /><b /><span /></div>
-          <div className="evidence-vitrine">
-            <header><span>ZUNYI / COLLECTION</span><b>馆藏文物检视台</b><small>材质 · 尺度 · 流传</small></header>
-            <div className="evidence-grid">
-              <figure className="evidence-clock"><img src={assetPath('/artifacts/clock.png')} alt="" /><figcaption><span>C-02</span><b>会议室挂钟</b></figcaption></figure>
-              <figure className="evidence-seal"><img src={assetPath('/artifacts/seal.png')} alt="" /><figcaption><span>C-05</span><b>王有发私章</b></figcaption></figure>
-              <figure className="evidence-leaflet"><img src={assetPath('/artifacts/leaflet-01.png')} alt="" /><figcaption><span>C-06</span><b>纸本文献</b></figcaption></figure>
+        <div className="museum-glass-stage" aria-hidden="true">
+          <p className="museum-stage-label"><span>COLLECTION PRELUDE</span><b>馆藏序厅</b></p>
+          <div className="museum-track"><i /><i /><i /></div>
+          <div className="museum-beams"><i /><i /><i /></div>
+          <div className="museum-cases">
+            <div className="glass-case case-form">
+              <span className="case-index">01</span>
+              <div className="case-silhouette silhouette-form"><i /><b /></div>
+              <p><b>形制</b><small>材质与尺度</small></p>
             </div>
+            <div className="glass-case case-detail">
+              <span className="case-index">02</span>
+              <div className="case-silhouette silhouette-detail"><i /><b /></div>
+              <p><b>细节</b><small>磨损与痕迹</small></p>
+            </div>
+            <div className="glass-case case-story">
+              <span className="case-index">03</span>
+              <div className="case-silhouette silhouette-story"><i /><b /></div>
+              <p><b>流传</b><small>人与历史</small></p>
+            </div>
+          </div>
+          <div className="museum-dust">
+            {Array.from({ length: 12 }, (_, index) => <i key={index} />)}
           </div>
         </div>
         <div className="artifact-portal-copy">
