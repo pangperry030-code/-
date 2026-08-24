@@ -1654,10 +1654,15 @@ export default function Home() {
         </header>
 
         <section className="finale-stage">
-          <div className="finale-rays" aria-hidden="true" />
-          <div className="finale-orbit orbit-one" aria-hidden="true" />
-          <div className="finale-orbit orbit-two" aria-hidden="true" />
-          <div className="finale-giant-word" aria-hidden="true">光</div>
+          <div className="finale-flag" aria-hidden="true">
+            <div className="finale-flag-stars">
+              <i className="flag-star flag-star-large" />
+              <i className="flag-star flag-star-one" />
+              <i className="flag-star flag-star-two" />
+              <i className="flag-star flag-star-three" />
+              <i className="flag-star flag-star-four" />
+            </div>
+          </div>
           <p className="finale-kicker"><span>1935 · 遵义</span><b>从伟大转折走向光明前程</b></p>
           <div className="finale-title">
             <small>遵义会议精神</small>

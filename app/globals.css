@@ -5736,56 +5736,86 @@ a:focus-visible {
   align-content: center;
   gap: 30px clamp(60px, 8vw, 150px);
   overflow: hidden;
-  background:
-    radial-gradient(circle at 72% 48%, rgba(255, 238, 157, 0.48), transparent 10%),
-    radial-gradient(circle at 72% 48%, rgba(255, 143, 69, 0.64), transparent 31%),
-    linear-gradient(128deg, #c70c1c 0%, #eb201f 48%, #f64a2d 74%, #fa7940 100%);
+  isolation: isolate;
+  background: #de0815;
   padding: 128px clamp(46px, 8vw, 140px) 62px;
 }
 
-.finale-rays {
+.finale-flag {
   position: absolute;
-  top: -48vmax;
-  right: -38vmax;
-  width: 110vmax;
-  height: 110vmax;
-  border-radius: 50%;
-  background: repeating-conic-gradient(from -8deg, rgba(255, 247, 189, 0.14) 0deg 6deg, transparent 6deg 14deg);
-  animation: finaleRotate 42s linear infinite;
+  z-index: 0;
+  inset: -8%;
+  overflow: hidden;
+  background:
+    linear-gradient(103deg, rgba(115, 0, 10, 0.2), transparent 18% 77%, rgba(255, 100, 58, 0.2)),
+    repeating-linear-gradient(102deg, rgba(255, 255, 255, 0.055) 0 5%, rgba(126, 0, 12, 0.06) 9% 14%, rgba(255, 72, 49, 0.07) 19% 25%),
+    linear-gradient(128deg, #c80718 0%, #e61720 50%, #ef2d24 76%, #f25132 100%);
+  background-size: 100% 100%, 230px 100%, 100% 100%;
+  transform-origin: 0 50%;
+  animation: flagFieldWave 9s ease-in-out infinite alternate;
 }
 
-@keyframes finaleRotate {
-  to { transform: rotate(360deg); }
-}
-
-.finale-orbit {
+.finale-flag::before {
   position: absolute;
-  top: 50%;
-  left: 72%;
-  border: 1px solid rgba(255, 242, 190, 0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  background:
+    linear-gradient(96deg, transparent 0 14%, rgba(255, 231, 183, 0.12) 23%, transparent 34% 58%, rgba(255, 217, 160, 0.09) 69%, transparent 81%),
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(255, 234, 202, 0.018) 6px 7px);
+  background-size: 220% 100%, 100% 100%;
+  content: "";
+  animation: flagSilkGlint 8s ease-in-out infinite;
 }
 
-.orbit-one {
-  width: 52vmin;
-  height: 52vmin;
-}
-
-.orbit-two {
-  width: 72vmin;
-  height: 72vmin;
-}
-
-.finale-giant-word {
+.finale-flag::after {
   position: absolute;
-  top: 50%;
-  right: -1vw;
-  color: rgba(255, 246, 201, 0.105);
-  font-family: "STKaiti", "KaiTi", serif;
-  font-size: min(47vw, 650px);
-  line-height: 0.8;
-  transform: translateY(-50%);
+  inset: 0;
+  background:
+    radial-gradient(circle at 72% 45%, rgba(255, 144, 72, 0.24), transparent 29%),
+    linear-gradient(90deg, rgba(115, 0, 10, 0.17), transparent 34% 72%, rgba(124, 0, 13, 0.14));
+  content: "";
+}
+
+@keyframes flagFieldWave {
+  from { background-position: center, -50px 0, center; transform: scale(1.015) skewY(-0.4deg); }
+  to { background-position: center, 80px 0, center; transform: scale(1.045) skewY(0.55deg) translateX(0.8%); }
+}
+
+@keyframes flagSilkGlint {
+  0%, 100% { background-position: 110% 0, 0 0; opacity: 0.58; }
+  50% { background-position: -110% 0, 0 7px; opacity: 0.9; }
+}
+
+.finale-flag-stars {
+  position: absolute;
+  z-index: 2;
+  top: 7%;
+  right: 1.5%;
+  width: min(46vw, 720px);
+  aspect-ratio: 3 / 2;
+  filter: drop-shadow(0 8px 20px rgba(121, 43, 0, 0.16));
+  opacity: 0.8;
+  animation: flagStarsBreathe 6s ease-in-out infinite alternate;
+}
+
+.flag-star {
+  --star-rotation: 0deg;
+  position: absolute;
+  width: 6.6667%;
+  aspect-ratio: 1;
+  background: #ffde00;
+  clip-path: polygon(50% 0%, 61.8% 36.2%, 100% 36.2%, 69.1% 58.8%, 80.9% 95.1%, 50% 72.7%, 19.1% 95.1%, 30.9% 58.8%, 0% 36.2%, 38.2% 36.2%);
+  transform: translate(-50%, -50%) rotate(var(--star-rotation));
+}
+
+.flag-star-large { top: 25%; left: 16.6667%; width: 20%; }
+.flag-star-one { --star-rotation: -121deg; top: 10%; left: 33.3333%; }
+.flag-star-two { --star-rotation: -98deg; top: 20%; left: 40%; }
+.flag-star-three { --star-rotation: -74deg; top: 35%; left: 40%; }
+.flag-star-four { --star-rotation: -51deg; top: 45%; left: 33.3333%; }
+
+@keyframes flagStarsBreathe {
+  from { filter: brightness(0.96); transform: translateY(-0.6%); }
+  to { filter: brightness(1.08); transform: translateY(0.8%); }
 }
 
 .finale-kicker,
@@ -5795,7 +5825,7 @@ a:focus-visible {
 .finale-actions,
 .finale-source {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .finale-kicker {
@@ -6344,9 +6374,11 @@ a:focus-visible {
     max-width: 760px;
   }
 
-  .finale-giant-word {
-    top: 24%;
-    right: -8vw;
+  .finale-flag-stars {
+    top: 5%;
+    right: -8%;
+    width: min(70vw, 660px);
+    opacity: 0.34;
   }
 
 }
@@ -6444,6 +6476,13 @@ a:focus-visible {
   .finale-stage {
     gap: 30px;
     padding: 112px 23px 60px;
+  }
+
+  .finale-flag-stars {
+    top: 3%;
+    right: -18%;
+    width: 90vw;
+    opacity: 0.28;
   }
 
   .finale-kicker {
@@ -7165,8 +7204,8 @@ a:focus-visible {
 
 .practice-track .stop-1 .practice-stop-card { bottom: 24px; left: 18px; }
 .practice-track .stop-2 .practice-stop-card { right: 18px; bottom: 24px; }
-.practice-track .stop-3 .practice-stop-card { top: 24px; right: 18px; }
-.practice-track .stop-4 .practice-stop-card { top: 24px; right: 18px; }
+.practice-track .stop-3 .practice-stop-card { right: 18px; bottom: 24px; }
+.practice-track .stop-4 .practice-stop-card { right: 6px; bottom: 24px; }
 
 .practice-field > p {
   color: rgba(68, 30, 25, 0.56);
@@ -7286,25 +7325,116 @@ a:focus-visible {
   color: rgba(255, 247, 231, 0.76);
 }
 
-/* Slow exhibition light: the background moves, the reading surfaces stay calm. */
+/* Each hall has its own slow-moving visual metaphor instead of one repeated light effect. */
 
 .museum .hall-stage::after {
   position: absolute;
   z-index: -1;
-  top: -62vmax;
-  right: -58vmax;
-  width: 128vmax;
-  height: 128vmax;
-  border-radius: 50%;
-  background: repeating-conic-gradient(from -12deg, rgba(255, 250, 216, 0.16) 0deg 5deg, transparent 5deg 17deg);
+  inset: -12%;
   content: "";
-  opacity: 0.36;
+  opacity: 0.34;
   pointer-events: none;
-  animation: museumLightRotate 58s linear infinite;
+  will-change: transform, background-position, opacity;
 }
 
-@keyframes museumLightRotate {
-  to { transform: rotate(360deg); }
+.museum.hall-crisis .hall-stage::after {
+  background:
+    repeating-radial-gradient(ellipse at 14% 82%, transparent 0 38px, rgba(151, 61, 43, 0.18) 39px 40px, transparent 41px 73px),
+    repeating-radial-gradient(ellipse at 80% 14%, transparent 0 52px, rgba(190, 68, 45, 0.11) 53px 54px, transparent 55px 92px);
+  animation: crisisContours 20s ease-in-out infinite alternate;
+}
+
+@keyframes crisisContours {
+  from { transform: translate3d(-2%, 2%, 0) scale(1.02); }
+  to { transform: translate3d(3%, -2.5%, 0) scale(1.07); }
+}
+
+.museum.hall-people .hall-stage::after {
+  background:
+    radial-gradient(ellipse 9% 32% at 14% 108%, rgba(130, 41, 34, 0.2) 0 58%, transparent 61%),
+    radial-gradient(ellipse 8% 28% at 34% 105%, rgba(167, 51, 39, 0.16) 0 57%, transparent 60%),
+    radial-gradient(ellipse 10% 35% at 58% 110%, rgba(125, 38, 33, 0.17) 0 58%, transparent 61%),
+    radial-gradient(ellipse 8% 29% at 80% 105%, rgba(174, 55, 40, 0.15) 0 57%, transparent 60%),
+    radial-gradient(circle at 52% 32%, rgba(255, 240, 198, 0.42), transparent 30%);
+  filter: blur(2px);
+  animation: peoplePresence 10s ease-in-out infinite alternate;
+}
+
+@keyframes peoplePresence {
+  from { opacity: 0.24; transform: translateX(-1.2%) scaleY(0.98); }
+  to { opacity: 0.42; transform: translateX(1.2%) scaleY(1.03); }
+}
+
+.museum.hall-meeting .hall-stage::after {
+  background:
+    linear-gradient(112deg, transparent 22%, rgba(255, 243, 202, 0.12) 34%, transparent 46%),
+    repeating-linear-gradient(90deg, transparent 0 92px, rgba(117, 47, 37, 0.08) 93px 95px);
+  transform-origin: 84% 0;
+  animation: meetingWindowLight 15s ease-in-out infinite alternate;
+}
+
+@keyframes meetingWindowLight {
+  from { opacity: 0.18; transform: skewX(-4deg) translateX(-5%); }
+  to { opacity: 0.42; transform: skewX(3deg) translateX(6%); }
+}
+
+.museum.hall-decision .hall-stage::after {
+  background:
+    radial-gradient(circle at 78% 23%, transparent 0 72px, rgba(172, 48, 41, 0.16) 73px 77px, transparent 78px),
+    linear-gradient(180deg, transparent 0 42%, rgba(255, 249, 225, 0.42) 49%, transparent 56%),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(111, 51, 40, 0.07) 28px 29px);
+  background-size: 100% 100%, 100% 210%, 100% 100%;
+  animation: documentScan 13s ease-in-out infinite;
+}
+
+@keyframes documentScan {
+  0%, 100% { background-position: center, 0 -85%, center; opacity: 0.25; }
+  50% { background-position: center, 0 90%, center; opacity: 0.42; }
+}
+
+.museum.hall-practice .hall-stage::after {
+  background:
+    linear-gradient(100deg, transparent 12%, rgba(226, 76, 48, 0.16) 22%, transparent 34%),
+    repeating-linear-gradient(90deg, transparent 0 47px, rgba(121, 48, 38, 0.08) 48px 49px);
+  background-size: 220% 100%, 100% 100%;
+  animation: practiceCoordinateSweep 12s linear infinite;
+}
+
+@keyframes practiceCoordinateSweep {
+  from { background-position: 110% 0, 0 0; }
+  to { background-position: -110% 0, 49px 0; }
+}
+
+.museum.hall-spirit .hall-stage::after {
+  background:
+    radial-gradient(circle at 26% 28%, rgba(255, 241, 182, 0.26), transparent 18%),
+    radial-gradient(circle at 74% 32%, rgba(255, 219, 139, 0.22), transparent 19%),
+    radial-gradient(circle at 50% 76%, rgba(231, 79, 46, 0.15), transparent 25%);
+  animation: spiritAurora 9s ease-in-out infinite alternate;
+}
+
+@keyframes spiritAurora {
+  from { opacity: 0.22; transform: scale(0.98); }
+  to { opacity: 0.46; transform: scale(1.06); }
+}
+
+.museum.hall-site .hall-stage::after {
+  background: linear-gradient(90deg, rgba(255, 248, 224, 0.08), transparent 34% 68%, rgba(218, 63, 43, 0.12));
+  animation: siteVignetteBreathe 8s ease-in-out infinite alternate;
+}
+
+.museum.hall-site .hall-backdrop {
+  animation: sitePhotoDrift 20s ease-in-out infinite alternate;
+}
+
+@keyframes siteVignetteBreathe {
+  from { opacity: 0.18; }
+  to { opacity: 0.42; }
+}
+
+@keyframes sitePhotoDrift {
+  from { transform: scale(1.04) translate3d(-0.8%, 0, 0); }
+  to { transform: scale(1.1) translate3d(1.2%, -0.8%, 0); }
 }
 
 .artifact-entry,
@@ -7334,22 +7464,22 @@ a:focus-visible {
 .archive-page-reader::before {
   position: absolute;
   z-index: 0;
-  width: 95vmax;
-  height: 95vmax;
-  border-radius: 50%;
-  background: repeating-conic-gradient(from 8deg, rgba(255, 247, 199, 0.13) 0deg 6deg, transparent 6deg 16deg);
+  inset: -10%;
   content: "";
   pointer-events: none;
-  animation: chapterLightRotate 52s linear infinite;
+  will-change: transform, background-position, opacity;
 }
 
 .artifact-entry::after {
-  top: -56vmax;
-  right: -48vmax;
+  background:
+    radial-gradient(ellipse 24% 68% at 18% 22%, rgba(255, 239, 189, 0.28), transparent 64%),
+    radial-gradient(ellipse 20% 62% at 82% 34%, rgba(255, 223, 158, 0.24), transparent 66%);
+  animation: artifactSpotlights 14s ease-in-out infinite alternate;
 }
 
-@keyframes chapterLightRotate {
-  to { transform: rotate(360deg); }
+@keyframes artifactSpotlights {
+  from { opacity: 0.44; transform: translateX(-3%) rotate(-2deg); }
+  to { opacity: 0.82; transform: translateX(4%) rotate(2deg); }
 }
 
 .artifact-entry-collage figure {
@@ -7381,8 +7511,16 @@ a:focus-visible {
 }
 
 .artifact-portal::after {
-  top: -48vmax;
-  right: -42vmax;
+  background:
+    linear-gradient(108deg, transparent 24%, rgba(255, 247, 210, 0.22) 38%, transparent 49%),
+    repeating-linear-gradient(90deg, transparent 0 72px, rgba(255, 236, 195, 0.04) 73px 74px);
+  background-size: 230% 100%, 100% 100%;
+  animation: portalGlassSweep 11s ease-in-out infinite;
+}
+
+@keyframes portalGlassSweep {
+  0%, 100% { background-position: 115% 0, 0 0; opacity: 0.25; }
+  50% { background-position: -110% 0, 74px 0; opacity: 0.62; }
 }
 
 .artifact-portal-grid {
@@ -7412,15 +7550,19 @@ a:focus-visible {
 .artifact-desk::before {
   position: absolute;
   z-index: 0;
-  top: -62vmax;
-  left: -54vmax;
-  width: 116vmax;
-  height: 116vmax;
-  border-radius: 50%;
-  background: repeating-conic-gradient(from -14deg, rgba(255, 245, 197, 0.1) 0deg 5deg, transparent 5deg 15deg);
+  inset: 0;
+  background:
+    linear-gradient(94deg, transparent 12%, rgba(255, 241, 205, 0.15) 29%, transparent 43%),
+    repeating-linear-gradient(7deg, transparent 0 18px, rgba(112, 34, 31, 0.05) 19px 20px);
+  background-size: 240% 100%, 100% 100%;
   content: "";
   pointer-events: none;
-  animation: chapterLightRotate 66s linear infinite reverse;
+  animation: artifactDeskGrain 16s ease-in-out infinite;
+}
+
+@keyframes artifactDeskGrain {
+  0%, 100% { background-position: 105% 0, 0 0; opacity: 0.38; }
+  50% { background-position: -105% 0, 24px 9px; opacity: 0.72; }
 }
 
 .artifact-desk > * {
@@ -7503,8 +7645,15 @@ a:focus-visible {
 }
 
 .artifact-handoff::after {
-  top: -58vmax;
-  left: -48vmax;
+  background:
+    repeating-linear-gradient(118deg, transparent 0 58px, rgba(255, 237, 188, 0.09) 60px 74px, transparent 76px 132px);
+  background-size: 180% 100%;
+  animation: handoffRibbon 18s linear infinite;
+}
+
+@keyframes handoffRibbon {
+  from { background-position: 0 0; transform: translateX(-4%); }
+  to { background-position: 420px 0; transform: translateX(4%); }
 }
 
 .archive-page {
@@ -7518,8 +7667,17 @@ a:focus-visible {
 }
 
 .archive-hero::before {
-  top: -50vmax;
-  right: -43vmax;
+  background:
+    linear-gradient(90deg, transparent 0 54%, rgba(255, 245, 214, 0.18) 61%, transparent 68%),
+    repeating-linear-gradient(0deg, transparent 0 45px, rgba(255, 240, 207, 0.075) 46px 47px),
+    repeating-linear-gradient(90deg, transparent 0 132px, rgba(255, 240, 207, 0.055) 133px 134px);
+  background-size: 240% 100%, 100% 100%, 100% 100%;
+  animation: archiveIndexScan 15s ease-in-out infinite;
+}
+
+@keyframes archiveIndexScan {
+  0%, 100% { background-position: 115% 0, 0 0, 0 0; opacity: 0.28; }
+  50% { background-position: -115% 0, 0 47px, 134px 0; opacity: 0.58; }
 }
 
 .archive-hero::after {
@@ -7562,10 +7720,16 @@ a:focus-visible {
 }
 
 .archive-page-reader::before {
-  top: -59vmax;
-  left: -45vmax;
-  opacity: 0.78;
-  animation-direction: reverse;
+  background:
+    radial-gradient(circle, rgba(255, 239, 203, 0.2) 0 1px, transparent 1.8px),
+    linear-gradient(112deg, transparent 18%, rgba(255, 231, 185, 0.1) 36%, transparent 51%);
+  background-size: 34px 34px, 220% 100%;
+  animation: archivePaperDrift 18s ease-in-out infinite;
+}
+
+@keyframes archivePaperDrift {
+  0%, 100% { background-position: 0 0, 110% 0; opacity: 0.24; transform: translateY(-1%); }
+  50% { background-position: 17px 34px, -105% 0; opacity: 0.48; transform: translateY(1%); }
 }
 
 .archive-page-reader > * {
@@ -7831,20 +7995,13 @@ a:focus-visible {
 
   .practice-track .stop-1 .practice-stop-card,
   .practice-track .stop-2 .practice-stop-card {
-    right: auto;
     bottom: 18px;
-    left: 9px;
   }
 
-  .practice-track .stop-3 .practice-stop-card {
-    top: 18px;
-    right: auto;
-    left: 9px;
-  }
-
+  .practice-track .stop-3 .practice-stop-card,
   .practice-track .stop-4 .practice-stop-card {
-    top: 18px;
-    right: 9px;
+    top: auto;
+    bottom: 18px;
   }
 
   .note-detail-scroll p {
