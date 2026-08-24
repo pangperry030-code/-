@@ -229,9 +229,17 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
 
       <section className="artifact-portal">
         <div className="artifact-portal-grid" aria-hidden="true" />
-        <figure className="artifact-flag-photo" aria-hidden="true">
-          <img src={assetPath('/flag-of-china-beijing.jpg')} alt="" />
-        </figure>
+        <div className="artifact-evidence-stage" aria-hidden="true">
+          <div className="evidence-lamp"><i /><b /><span /></div>
+          <div className="evidence-vitrine">
+            <header><span>ZUNYI / COLLECTION</span><b>馆藏文物检视台</b><small>材质 · 尺度 · 流传</small></header>
+            <div className="evidence-grid">
+              <figure className="evidence-clock"><img src={assetPath('/artifacts/clock.png')} alt="" /><figcaption><span>C-02</span><b>会议室挂钟</b></figcaption></figure>
+              <figure className="evidence-seal"><img src={assetPath('/artifacts/seal.png')} alt="" /><figcaption><span>C-05</span><b>王有发私章</b></figcaption></figure>
+              <figure className="evidence-leaflet"><img src={assetPath('/artifacts/leaflet-01.png')} alt="" /><figcaption><span>C-06</span><b>纸本文献</b></figcaption></figure>
+            </div>
+          </div>
+        </div>
         <div className="artifact-portal-copy">
           <p><span>遵义会议纪念馆馆藏</span><b>08 OBJECTS / 13 IMAGES</b></p>
           <h1><i>见物</i><br />见人</h1>
@@ -241,8 +249,6 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
           </div>
           <a href="#artifact-desk">推开馆藏抽屉 <span>↓</span></a>
         </div>
-        <aside><span>从形制开始</span><b>看材质与尺度</b><i>→</i><span>沿流传继续</span><b>看人与历史</b></aside>
-        <p className="artifact-flag-credit">背景照片：Daderot / Wikimedia Commons · 公共领域</p>
       </section>
 
       <section className="artifact-desk" id="artifact-desk">
