@@ -229,13 +229,9 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
 
       <section className="artifact-portal">
         <div className="artifact-portal-grid" aria-hidden="true" />
-        <div className="artifact-flag-scene" aria-hidden="true">
-          <i className="artifact-flag-pole" />
-          <div className="artifact-flag-cloth"><span /><span /><span /></div>
-        </div>
-        <figure className="portal-object portal-object-clock"><img src={assetPath('/artifacts/clock.png')} alt="" /></figure>
-        <figure className="portal-object portal-object-flag"><img src={assetPath('/artifacts/flag.png')} alt="" /></figure>
-        <figure className="portal-object portal-object-seal"><img src={assetPath('/artifacts/seal.png')} alt="" /></figure>
+        <figure className="artifact-flag-photo" aria-hidden="true">
+          <img src={assetPath('/flag-of-china-beijing.jpg')} alt="" />
+        </figure>
         <div className="artifact-portal-copy">
           <p><span>遵义会议纪念馆馆藏</span><b>08 OBJECTS / 13 IMAGES</b></p>
           <h1><i>见物</i><br />见人</h1>
@@ -246,6 +242,7 @@ export default function RelicExhibition({ onBack, onNext }: RelicExhibitionProps
           <a href="#artifact-desk">推开馆藏抽屉 <span>↓</span></a>
         </div>
         <aside><span>从形制开始</span><b>看材质与尺度</b><i>→</i><span>沿流传继续</span><b>看人与历史</b></aside>
+        <p className="artifact-flag-credit">背景照片：Daderot / Wikimedia Commons · 公共领域</p>
       </section>
 
       <section className="artifact-desk" id="artifact-desk">

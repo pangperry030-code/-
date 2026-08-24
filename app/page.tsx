@@ -1664,7 +1664,7 @@ export default function Home() {
 
         <section className="archive-hero">
           <div className="archive-hero-grid" aria-hidden="true" />
-          <div className="archive-hero-mark" aria-hidden="true">据</div>
+          <div className="archive-hero-mark" aria-hidden="true"><span>星星之火</span><b>可以燎原</b></div>
           <div className="archive-fire-scene" aria-hidden="true">
             <div className="archive-fire-horizon" />
             <div className="archive-fireline" />
@@ -1727,7 +1727,6 @@ export default function Home() {
           <div className="finale-sun-core" aria-hidden="true" />
           <div className="finale-orbit orbit-one" aria-hidden="true" />
           <div className="finale-orbit orbit-two" aria-hidden="true" />
-          <div className="finale-giant-word" aria-hidden="true">光</div>
           <p className="finale-kicker"><span>1935 · 遵义</span><b>从伟大转折走向光明前程</b></p>
           <div className="finale-title">
             <small>遵义会议精神</small>
